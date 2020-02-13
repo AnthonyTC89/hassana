@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <h1 align="center">Hassana Massages Web Page</h1>
+  <p align="center">
+    Project Create with React and RailsAPI
+    <br>
+    <br>
+    <a href="https://hassana-massages.herokuapp.com/" target="_blank">Live Demo</a>
+    .
+    <a href="https://github.com/AnthonyTC89/hassana/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AnthonyTC89/hassana/issues">Request Feature</a>
+  </p>
+</p>
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-In the project directory, you can run:
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Installation](#installation)
 
-### `yarn start`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is a Web Page for a business in Arequipa, Peru. The owner need to show his services
+on Internet with some basic sections.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Built With
+* [HTML](https://www.w3.org/html/)
+* [CSS](https://www.w3.org/Style/CSS/)
+* [Bootstrap](https://getbootstrap.com/)
+* [JavaScript](https://www.javascript.com/)
+* [React](https://reactjs.org/)
+* [Ruby](https://www.ruby-lang.org/en/)
+* [RailsAPI](https://rubyonrails.org/)
 
-### `yarn test`
+### Pre-Installation
+  1. npm version 6.13.4 or more
+  2. node version 8.17.0 or more
+  3. ruby version 2.6.5 or more
+  4. rails version 6.0.2.1 or more
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
+  1. clone the repository [hassana](https://github.com/AnthonyTC89/hassana)
+  2. cd in to the folder and run `bundle install`
+  3. run `rails db:create && rails db:migrate && rails db:seed`
+    * (If there are problems with the service of postgresql check DB Section) 
+  4. cd in to /client folder and run `npm install`
+  5. return to root folder and run `rails start`
+  6. wait until both servers will be initialized
+  7. go to [localhost:3000](http://localhost:3000)
 
-### `yarn build`
+### DataBase Setup
+  1. Run: `sudo apt-get update && sudo apt-get install postgresql`
+  2. Run: `sudo service postgresql start`
+  2. Run: `sudo -i -u postgres`
+  3. Run: `psql`
+  4. Run: `CREATE USER rails with encrypted password 'rails';` (with semicolon)
+  5. Run: `ALTER USER rails createdb;` 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Contact
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **[Anthony Tapia Cossio](https://github.com/AnthonyTC89) - [Linkedin](linkedin.com/in/anthony-tapia-cossio) - [Twitter](https://twitter.com/ptonypTC) - [Portfolio](https://portfolio-anthony.herokuapp.com/)**
