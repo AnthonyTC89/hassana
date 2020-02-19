@@ -5,14 +5,16 @@ import './MainService.css';
 
 const MainService = () => (
   <div className="container-main">
-    <img className="img-main-service bg-hassana" src={Service} alt="service-hassana" />
-    <ul>
-      {Info.mainService.map((feature) => (
-        <li>
-          {feature}
-        </li>
-      ))}
-    </ul>
+    <div className="row">
+      <img className="col-12 col-sm-6 img-main-service" src={Service} alt="service-hassana" />
+      <ul className="col-12 col-sm-6">
+        {Info.mainService.map((feature) => (
+          <li>
+            {feature}
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 );
 
