@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import Slogan from '../Components/Slogan';
 import MainService from '../Components/MainService';
+import Services from '../Components/Services';
 
 const Home = () => (
   <>
@@ -9,6 +10,7 @@ const Home = () => (
     <main>
       <Slogan />
       <MainService />
+      <Services />
     </main>
     <footer>
       Footer

@@ -8,5 +8,22 @@
     "Contribuye a eliminar el insomnio.",
     "Mejora el estado de animo, combatiendo el estres, ansiedad y depresion.",
     "Recupera la vitalidad del cuerpo y eleva el sistema inmune."
+  ],
+  "services": [
+    {
+      "img": "https://i0.wp.com/hidroworks.com/tienda/wp-content/uploads/2018/10/0003sillon0001.jpg",
+      "title": "Sillones Relajantes",
+      "description": "Descripcion"
+    },
+    {
+      "img": "https://www.paloaltoquiropractico.com/images/blog/blog_img_5.jpg",
+      "title": "Masajes",
+      "description": "Descripcion"
+    },
+    {
+      "img": "https://i0.wp.com/hidroworks.com/tienda/wp-content/uploads/2018/10/0003sillon0001.jpg",
+      "title": "Productos",
+      "description": "Descripcion"
+    }
   ]
 }

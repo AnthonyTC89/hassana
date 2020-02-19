@@ -5,7 +5,7 @@ import './MainService.css';
 
 const MainService = () => (
   <div className="container-main">
-    <img className="img-service bg-hassana" src={Service} alt="service-hassana" />
+    <img className="img-main-service bg-hassana" src={Service} alt="service-hassana" />
     <ul>
       {Info.mainService.map((feature) => (
         <li>
