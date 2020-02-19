@@ -1,0 +1,9 @@
+.testimonial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-testimonial {
+  width: 15rem;
+}

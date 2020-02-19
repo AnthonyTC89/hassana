@@ -25,5 +25,11 @@
       "title": "Productos",
       "description": "Descripcion"
     }
+  ],
+  "testimonials": [
+    {
+      "img": "",
+      "description": "Testimonio"
+    }
   ]
 }
