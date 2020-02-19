@@ -1,0 +1,8 @@
+.img-logo {
+  max-width: 5rem;
+}
+.container-slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
