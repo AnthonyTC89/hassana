@@ -1,5 +1,22 @@
 {
-  "slogan": "Una manera inteligente de cuidarte",
+  "slogan": {
+    "title": "Hassana Masaje & Salud",
+    "subTitle": "Una manera inteligente de cuidarte",
+    "imageLink": "https://picsum.photos/800",
+    "social": [
+      {
+        "name": "facebook",
+        "pageLink": "https://www.facebook.com/hassanamasajessalud/",
+        "iconLink": "https://img.icons8.com/color/48/000000/facebook.png"
+      },
+      {
+        "name": "instagram",
+        "pageLink": "https://www.instagram.com/",
+        "iconLink": "https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"
+      }
+    ]
+  },
+  
   "mainService": [
     "Previene y mejora dolores de cabeza y migraña.",
     "Restablece la circulacion sanguinea.",

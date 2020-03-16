@@ -1,8 +1,42 @@
-.img-logo {
-  max-width: 5rem;
+picture{
+  display: flex;
 }
-.container-slogan {
+
+.row {
+  padding: 1rem;
+}
+
+.slogan-section {
+  text-align: center;
+  display: flex;
+}
+
+.slogan-image {
+  width: 70%;
+  margin: auto;
+}
+
+.slogan-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-list {
+  list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.social-link {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  width: 2rem;
+}
+
+
+

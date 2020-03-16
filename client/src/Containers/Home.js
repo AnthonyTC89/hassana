@@ -1,22 +1,22 @@
 import React from 'react';
-import Navbar from '../Components/Navbar';
+// import Navbar from '../Components/Navbar';
 import Slogan from '../Components/Slogan';
-import MainService from '../Components/MainService';
-import Services from '../Components/Services';
-import Testimonials from '../Components/Testimonials';
+// import MainService from '../Components/MainService';
+// import Services from '../Components/Services';
+// import Testimonials from '../Components/Testimonials';
 
 const Home = () => (
   <>
-    <header><Navbar /></header>
+    {/* <header><Navbar /></header> */}
     <main>
       <Slogan />
-      <MainService />
-      <Services />
-      <Testimonials />
+      {/* <MainService /> */}
+      {/* <Services />
+      <Testimonials /> */}
     </main>
-    <footer>
+    {/* <footer>
       Footer
-    </footer>
+    </footer> */}
   </>
 );
 
