@@ -16,7 +16,26 @@
       }
     ]
   },
-  
+  "promotions": [
+    {
+      "title": "Promo1",
+      "description": "Descripcion1",
+      "image": 
+      {
+        "name": "imagen1",
+        "src": "https://picsum.photos/800"
+      }
+    },
+    {
+      "title": "Promo2",
+      "description": "Descripcion2",
+      "image": 
+      {
+        "name": "imagen2",
+        "src": "https://picsum.photos/800"
+      }
+    }
+  ],
   "mainService": [
     "Previene y mejora dolores de cabeza y migraña.",
     "Restablece la circulacion sanguinea.",
