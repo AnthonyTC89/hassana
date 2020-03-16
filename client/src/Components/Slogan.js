@@ -1,4 +1,5 @@
 import React from 'react';
+import uuidv4 from 'uuid/v4';
 import { slogan } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Slogan.css';
@@ -38,7 +39,7 @@ class Slogan extends React.Component {
             <h3>{subTitle}</h3>
             <div className="social-list">
               {social.map((s) => (
-                <a className="social-link" href={s.pageLink}>
+                <a className="social-link" href={s.pageLink} key={uuidv4()}>
                   <img className="social-icon" src={s.iconLink} alt={`${s.name}-icon`} />
                 </a>
               ))}
