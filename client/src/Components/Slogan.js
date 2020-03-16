@@ -28,7 +28,7 @@ class Slogan extends React.Component {
   render() {
     const { imageLink, title, subTitle, social } = this.state;
     return (
-      <section className="container slogan-section">
+      <section className="container-fluid slogan-section">
         <div className="row">
           <picture className="col-12 col-sm-6">
             <img className="slogan-image" src={imageLink} alt="hassana-masajes-salud" />
