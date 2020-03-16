@@ -2,6 +2,7 @@ import React from 'react';
 // import Navbar from '../Components/Navbar';
 import Slogan from '../Components/Slogan';
 import Promotions from '../Components/Promotions';
+import AboutUs from '../Components/AboutUs';
 // import MainService from '../Components/MainService';
 // import Services from '../Components/Services';
 // import Testimonials from '../Components/Testimonials';
@@ -12,8 +13,7 @@ const Home = () => (
     <main>
       <Slogan />
       <Promotions />
-      {/* <Services />
-      <Testimonials /> */}
+      <AboutUs />
     </main>
     {/* <footer>
       Footer

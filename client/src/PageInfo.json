@@ -22,8 +22,8 @@
       "description": "Descripcion1",
       "image": 
       {
-        "name": "imagen1",
-        "src": "https://picsum.photos/800"
+        "name": "promo1",
+        "src": "https://picsum.photos/700"
       }
     },
     {
@@ -31,11 +31,19 @@
       "description": "Descripcion2",
       "image": 
       {
-        "name": "imagen2",
-        "src": "https://picsum.photos/800"
+        "name": "promo2",
+        "src": "https://picsum.photos/700"
       }
     }
   ],
+  "aboutUs": {
+    "title": "¿Qué es Hassana?",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.",
+    "image": {
+      "name": "aboutUs",
+      "src": "https://picsum.photos/600"
+    }
+  },
   "mainService": [
     "Previene y mejora dolores de cabeza y migraña.",
     "Restablece la circulacion sanguinea.",

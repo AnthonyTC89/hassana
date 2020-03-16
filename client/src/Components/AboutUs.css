@@ -1,0 +1,15 @@
+.about-section {
+  text-align: center;
+}
+
+.about-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image {
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+}
