@@ -3,8 +3,8 @@ import React from 'react';
 import Slogan from '../Components/Slogan';
 import Promotions from '../Components/Promotions';
 import AboutUs from '../Components/AboutUs';
+import Services from '../Components/Services';
 // import MainService from '../Components/MainService';
-// import Services from '../Components/Services';
 // import Testimonials from '../Components/Testimonials';
 
 const Home = () => (
@@ -14,6 +14,7 @@ const Home = () => (
       <Slogan />
       <Promotions />
       <AboutUs />
+      <Services />
     </main>
     {/* <footer>
       Footer

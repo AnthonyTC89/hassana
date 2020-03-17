@@ -10,6 +10,7 @@
 
 .about-image {
   width: 80%;
+  max-width: 20rem;
   margin: auto;
   padding: 1rem;
 }

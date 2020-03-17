@@ -1,5 +1,19 @@
-.img-service {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
+.services-section {
+  text-align: center;
+}
+
+.service {
+  border: 1px solid blue;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.service-img {
+  width: 60%;
+  margin: auto;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
 }

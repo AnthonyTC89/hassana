@@ -22,3 +22,7 @@ section {
   border: 2px solid red;
   margin: 4rem auto;
 }
+
+.row {
+  padding: 1rem;
+}

@@ -2,10 +2,6 @@ picture{
   display: flex;
 }
 
-.row {
-  padding: 1rem;
-}
-
 .slogan-section {
   text-align: center;
   display: flex;
