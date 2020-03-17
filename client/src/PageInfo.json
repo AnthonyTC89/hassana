@@ -71,6 +71,30 @@
       
     }
   ],
+  "products": [
+    {
+      "title": "Product #1",
+      "description": "Descripcion Product #1",
+      "benefits": [
+        "benefit1",
+        "benefit2",
+        "benefit3"
+      ],
+      "image": "https://picsum.photos/450"
+      
+    },
+    {
+      "title": "Product #2",
+      "description": "Descripcion Product #2",
+      "benefits": [
+        "benefit1",
+        "benefit2",
+        "benefit3"
+      ],
+      "image": "https://picsum.photos/450"
+      
+    }
+  ],
   "testimonials": [
     {
       "img": "",

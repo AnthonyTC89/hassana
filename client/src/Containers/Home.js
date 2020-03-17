@@ -4,6 +4,7 @@ import Slogan from '../Components/Slogan';
 import Promotions from '../Components/Promotions';
 import AboutUs from '../Components/AboutUs';
 import Services from '../Components/Services';
+import Products from '../Components/Products';
 // import MainService from '../Components/MainService';
 // import Testimonials from '../Components/Testimonials';
 
@@ -15,6 +16,7 @@ const Home = () => (
       <Promotions />
       <AboutUs />
       <Services />
+      <Products />
     </main>
     {/* <footer>
       Footer

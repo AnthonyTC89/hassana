@@ -1,13 +1,11 @@
-.promotions-section {
+.products-section {
   text-align: center;
 }
-
-.promotion {
+.product {
   border: 1px solid blue;
   padding: 1rem;
   margin: 1rem;
 }
-
-.promo-image {
-  max-height: 10rem;
+.product-img {
+  max-height: 10rem
 }
