@@ -97,8 +97,12 @@
   ],
   "testimonials": [
     {
-      "img": "",
-      "description": "Testimonio"
+      "img": "https://picsum.photos/400",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi."
+    },
+    {
+      "img": "https://picsum.photos/400",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi."
     }
   ]
 }

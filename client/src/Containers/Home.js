@@ -5,8 +5,7 @@ import Promotions from '../Components/Promotions';
 import AboutUs from '../Components/AboutUs';
 import Services from '../Components/Services';
 import Products from '../Components/Products';
-// import MainService from '../Components/MainService';
-// import Testimonials from '../Components/Testimonials';
+import Testimonials from '../Components/Testimonials';
 
 const Home = () => (
   <>
@@ -17,6 +16,7 @@ const Home = () => (
       <AboutUs />
       <Services />
       <Products />
+      <Testimonials />
     </main>
     {/* <footer>
       Footer

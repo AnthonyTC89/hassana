@@ -1,27 +1,45 @@
 import React from 'react';
-// import Info from '../PageInfo.json';
+import uuidv4 from 'uuid/v4';
+import { testimonials } from '../PageInfo.json';
+import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Testimonials.css';
-import testimonialImg from '../Images/Testimonial01.jpg';
 
-const Testimonials = () => (
-  <div className="container">
-    <div className="row">
-      <article className="col-12 testimonial">
-        <div>
-          <img className="img-testimonial" src={testimonialImg} alt="hassana-testimonial" />
-        </div>
-        <div>
-          <p>TESTIMONIO</p>
-        </div>
-      </article>
-      {/* {Info.testimonials.map((testimonial) => (
-        <article className="col-12">
-          <img className="img-testimonial" src={testimonial.img} alt="hassana-testimonial" />
-          <p>{testimonial.description}</p>
-        </article>
-      ))} */}
-    </div>
-  </div>
-);
+class Testimonials extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allTestimonials: testimonials,
+    };
+  }
+
+  componentDidMount() {
+    this.getInfo();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  async getInfo() {
+    // eslint-disable-next-line no-console
+    console.log('getInfo Testimonials');
+  }
+
+  render() {
+    const { allTestimonials } = this.state;
+    return (
+      <section className="container testimonial-section">
+        <h2>Testimonios</h2>
+        {allTestimonials.map((t) => (
+          <article key={uuidv4()} className="row testimonial">
+            <picture className="col-12 col-sm-6">
+              <img className="testimonial-img" src={t.img} alt="hassana-testimonial" />
+            </picture>
+            <div className="col-12 col-sm-6 testimonial-text">
+              <p>{t.description}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+    );
+  }
+}
 
 export default Testimonials;

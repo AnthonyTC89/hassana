@@ -1,9 +1,19 @@
-.testimonial {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.testimonial-section {
+  text-align: center;
 }
 
-.img-testimonial {
-  width: 15rem;
+.testimonial {
+  border: 1px solid blue;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.testimonial-img {
+  width: 60%;
+  margin: auto;
+}
+
+.testimonial-text {
+  display: flex;
+  align-items: center;
 }
