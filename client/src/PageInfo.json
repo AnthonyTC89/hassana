@@ -104,5 +104,31 @@
       "img": "https://picsum.photos/400",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi."
     }
-  ]
+  ],
+  "contact": {
+    "image": "https://picsum.photos/500",
+    "map": {
+      "zoom": 15,
+      "lat": -16.4360,
+      "lng": -71.52605
+    },
+    "info": [
+      {
+        "name": "email",
+        "icon": "https://img.icons8.com/wired/64/000000/email.png",
+        "text": "hassana-salud@gmail.com"
+      },
+      {
+        "name": "celular",
+        "icon": "https://img.icons8.com/material-sharp/48/000000/phone-not-being-used.png",
+        "text": "987654321"
+      },
+      {
+        "name": "direccion",
+        "icon": "https://img.icons8.com/material/48/000000/worldwide-location--v1.png",
+        "text": "Urb. ABC I-54, Jose Luis Bustamante y Rivero, Arequipa"
+      }
+    ]
+
+  }
 }
