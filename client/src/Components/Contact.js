@@ -1,9 +1,10 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
+import GoogleMaps from './GoogleMaps';
 import { contact } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Contact.css';
-import GoogleMaps from './GoogleMaps';
+
 
 class Contact extends React.Component {
   constructor(props) {

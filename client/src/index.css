@@ -23,6 +23,9 @@ section {
   margin: 4rem auto;
 }
 
+footer {
+  border: 2px solid red;
+}
 .row {
   padding: 1rem;
 }

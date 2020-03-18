@@ -68,7 +68,6 @@
         "benefit3"
       ],
       "image": "https://picsum.photos/550"
-      
     }
   ],
   "products": [
@@ -81,7 +80,6 @@
         "benefit3"
       ],
       "image": "https://picsum.photos/450"
-      
     },
     {
       "title": "Product #2",
@@ -92,7 +90,6 @@
         "benefit3"
       ],
       "image": "https://picsum.photos/450"
-      
     }
   ],
   "testimonials": [
@@ -129,6 +126,15 @@
         "text": "Urb. ABC I-54, Jose Luis Bustamante y Rivero, Arequipa"
       }
     ]
-
+  },
+  "footer": {
+    "author" : {
+      "name": "Anthony Tapia Cossio",
+      "nick": "AnthonyTC89",
+      "link": "https://github.com/AnthonyTC89"
+    },
+    "copyright": {
+      "text": "©"
+    }
   }
 }
