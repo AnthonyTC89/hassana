@@ -1,0 +1,16 @@
+.navbar-elements {
+  display: contents;
+}
+
+.navbar-logo {
+  width: 2rem;
+  margin: 0 1rem;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}

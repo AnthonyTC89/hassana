@@ -25,7 +25,7 @@ class Services extends React.Component {
   render() {
     const { allServices } = this.state;
     return (
-      <section className="container services-section">
+      <section className="container services-section" id="services">
         <h2>Servicios</h2>
         {allServices.map((s) => (
           <article key={uuidv4()} className="row service">

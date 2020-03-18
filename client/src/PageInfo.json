@@ -1,4 +1,8 @@
 {
+  "navbar": {
+    "logo": "https://picsum.photos/200",
+    "text": "Hassana Masaje & Salud"
+  },
   "slogan": {
     "title": "Hassana Masaje & Salud",
     "subTitle": "Una manera inteligente de cuidarte",

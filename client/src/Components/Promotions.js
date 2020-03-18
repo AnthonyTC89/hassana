@@ -25,7 +25,7 @@ class Promotions extends React.Component {
   render() {
     const { promos } = this.state;
     return (
-      <section className="container promotions-section">
+      <section className="container promotions-section" id="promotions">
         <h2>Promociones</h2>
         <div className="row">
           {promos.map((p) => (

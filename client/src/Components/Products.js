@@ -25,7 +25,7 @@ class Products extends React.Component {
   render() {
     const { allProducts } = this.state;
     return (
-      <section className="container-fluid products-section">
+      <section className="container-fluid products-section" id="products">
         <h2>Productos</h2>
         <div className="row">
           {allProducts.map((p) => (

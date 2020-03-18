@@ -34,7 +34,7 @@ class Contact extends React.Component {
     const mapElement = <div style={{ height: '100%' }} />;
     const loadingElement = <p>Loading</p>;
     return (
-      <section className="container-fluid contact-section">
+      <section className="container-fluid contact-section" id="contact">
         <div className="row">
           <picture className="col-12 col-md-4 order-3 order-md-1 contact-picture">
             <img className="contact-img" src={image} alt="hassana-location" />

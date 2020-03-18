@@ -25,7 +25,7 @@ class Testimonials extends React.Component {
   render() {
     const { allTestimonials } = this.state;
     return (
-      <section className="container testimonial-section">
+      <section className="container testimonials-section" id="testimonials">
         <h2>Testimonios</h2>
         {allTestimonials.map((t) => (
           <article key={uuidv4()} className="row testimonial">

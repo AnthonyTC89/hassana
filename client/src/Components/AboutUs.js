@@ -27,7 +27,7 @@ class AboutUs extends React.Component {
   render() {
     const { title, text, image } = this.state;
     return (
-      <section className="container-fluid about-section">
+      <section className="container-fluid about-section" id="aboutUs">
         <h2>{title}</h2>
         <div className="row">
           <article className="col-12 col-sm-6 about-text">

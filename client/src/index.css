@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -23,7 +27,7 @@ section {
   margin: 4rem auto;
 }
 
-footer {
+footer, nav {
   border: 2px solid red;
 }
 .row {
