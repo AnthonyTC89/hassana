@@ -140,5 +140,9 @@
     "copyright": {
       "text": "©"
     }
+  },
+  "HTTPresponses": {
+    "404": "Usuario no encontrado",
+    "401": "Contraseña incorrecta"
   }
 }

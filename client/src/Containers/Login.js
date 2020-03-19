@@ -1,5 +1,6 @@
-/* eslint-disable no-console */
 import React from 'react';
+import axios from 'axios';
+import { HTTPresponses } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
 
@@ -9,10 +10,11 @@ class Login extends React.Component {
     this.state = {
       username: '',
       password: '',
-      errMessage: 'err',
+      errMessage: '',
       btnLoading: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -23,10 +25,22 @@ class Login extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    // eslint-disable-next-line no-unused-vars
+    this.setState({
+      errMessage: '',
+      btnLoading: true,
+    });
     const { username, password } = this.state;
-    console.log('username: ', username);
-    console.log('password: ', password);
+    const params = { username, password };
+    axios.post('login', params)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        this.setState({
+          errMessage: `${HTTPresponses[err.response.status]}`,
+          btnLoading: false,
+        });
+      });
   }
 
   render() {
