@@ -19,6 +19,7 @@ gem 'puma', '~> 4.3.3'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
+gem "aws-sdk-s3", require: false
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
