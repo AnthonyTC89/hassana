@@ -33,7 +33,7 @@ class Login extends React.Component {
     });
   }
 
-  async handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.setState({
       errMessage: '',
@@ -44,10 +44,11 @@ class Login extends React.Component {
     const params = { username, password };
     axios.post('login', params)
       .then((res) => {
-        addSession(res.data.username);
         this.setState({
           btnLoading: false,
         });
+        const user = { id: res.data.id, username };
+        addSession(user);
       })
       .catch((err) => {
         this.setState({

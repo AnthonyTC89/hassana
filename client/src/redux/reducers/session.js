@@ -1,13 +1,16 @@
 const defaultSession = {
-  username: '',
+  user: {
+    id: '',
+    username: '',
+  },
   isLoggedIn: false,
 };
 
-const session = (state = defaultSession, { type, username }) => {
+const session = (state = defaultSession, { type, user }) => {
   switch (type) {
     case 'LOGIN':
       return {
-        username,
+        user,
         isLoggedIn: true,
       };
     case 'LOGOUT':
