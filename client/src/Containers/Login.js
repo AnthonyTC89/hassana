@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { HTTPresponses } from '../PageInfo.json';
+import login from '../redux/actions/login';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
 
@@ -17,6 +20,13 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    const { session, history } = this.props;
+    if (session.isLoggedIn) {
+      history.push('/dashboard');
+    }
+  }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
@@ -30,10 +40,14 @@ class Login extends React.Component {
       btnLoading: true,
     });
     const { username, password } = this.state;
+    const { addSession } = this.props;
     const params = { username, password };
     axios.post('login', params)
       .then((res) => {
-        console.log(res);
+        addSession(res.data.username);
+        this.setState({
+          btnLoading: false,
+        });
       })
       .catch((err) => {
         this.setState({
@@ -74,4 +88,20 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  session: PropTypes.object.isRequired,
+  addSession: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  session: state.session,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addSession: (user) => dispatch(login(user)),
+});
+
+const LoginWrapper = connect(mapStateToProps, mapDispatchToProps)(Login);
+
+export default LoginWrapper;
