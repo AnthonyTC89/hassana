@@ -1,15 +1,15 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 // import uuidv4 from 'uuid/v4';
-import { testimonials } from '../PageInfo.json';
+// import { slogan } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import './Testimonials.css';
+import './Slogan.css';
 
-class Testimonials extends React.Component {
+class Slogan extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTestimonials: [],
+      slogan: [],
     };
   }
 
@@ -20,7 +20,7 @@ class Testimonials extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   async getInfo() {
     this.setState({
-      allTestimonials: testimonials,
+      slogan: '',
     });
   }
 
@@ -28,10 +28,10 @@ class Testimonials extends React.Component {
     // const { allTestimonials } = this.state;
     return (
       <section className="container">
-        <h2>Testimonios</h2>
+        <h2>Slogan</h2>
       </section>
     );
   }
 }
 
-export default Testimonials;
+export default Slogan;

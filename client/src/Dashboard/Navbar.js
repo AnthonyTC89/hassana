@@ -31,7 +31,7 @@ class Navbar extends React.Component {
   render() {
     const { logo } = this.state;
     return (
-      <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="navbar-elements">
           <a className="navbar-brand" href="#Profile">
             <img className="navbar-logo" src={logo} alt="hassana-logo" />

@@ -1,0 +1,11 @@
+.products-section {
+  text-align: center;
+}
+.product {
+  border: 1px solid blue;
+  padding: 1rem;
+  margin: 1rem;
+}
+.product-img {
+  max-height: 10rem
+}

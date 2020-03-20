@@ -1,0 +1,13 @@
+.promotions-section {
+  text-align: center;
+}
+
+.promotion {
+  border: 1px solid blue;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.promo-image {
+  max-height: 10rem;
+}

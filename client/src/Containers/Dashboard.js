@@ -2,12 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
+import { slogan } from '../PageInfo.json';
+import Testimonials from '../Dashboard/Testimonials';
+import './Dashboard.css';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Hassana',
+      title: slogan.title,
     };
   }
 
@@ -30,8 +34,9 @@ class Dashboard extends React.Component {
     return (
       <>
         <header><Navbar /></header>
-        <main>
-          <h1>{title}</h1>
+        <main className="dashboard-section">
+          <div><h1>{title}</h1></div>
+          <Testimonials />
         </main>
       </>
     );
