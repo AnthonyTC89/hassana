@@ -1,0 +1,4 @@
+.btn-container {
+  justify-content: space-between;
+  width: -webkit-fill-available;
+}

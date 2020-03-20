@@ -1,28 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Navbar from '../Dashboard/Navbar';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: props.session.isLoggedIn,
+      title: 'Hassana',
     };
   }
 
+  componentDidMount() {
+    const { session, history } = this.props;
+    if (!session.isLoggedIn) {
+      history.push('/login');
+    }
+  }
+
+  componentDidUpdate() {
+    const { session, history } = this.props;
+    if (!session.isLoggedIn) {
+      history.push('/');
+    }
+  }
+
   render() {
-    const { isLoggedIn } = this.state;
+    const { title } = this.state;
     return (
-      <div>
-        DASHBOARD
-        {isLoggedIn}
-      </div>
+      <>
+        <header><Navbar /></header>
+        <main>
+          <h1>{title}</h1>
+        </main>
+      </>
     );
   }
 }
 
 Dashboard.propTypes = {
   session: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
