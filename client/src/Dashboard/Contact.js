@@ -1,15 +1,16 @@
 import React from 'react';
-import { aboutUs } from '../PageInfo.json';
+// import uuidv4 from 'uuid/v4';
+import { contact } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import './AboutUs.css';
+import './Contact.css';
 
-class AboutUs extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
-    const { title, text, image } = aboutUs;
+    const { image, info, map } = contact;
     this.state = {
       // eslint-disable-next-line react/no-unused-state
-      title, text, image,
+      image, info, map,
     };
   }
 
@@ -20,16 +21,16 @@ class AboutUs extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   async getInfo() {
     // eslint-disable-next-line no-console
-    console.log('getInfo AboutUs');
+    console.log('getInfo Contact');
   }
 
   render() {
     return (
       <section className="container">
-        <h2>AboutUs</h2>
+        <h2>Contacto</h2>
       </section>
     );
   }
 }
 
-export default AboutUs;
+export default Contact;

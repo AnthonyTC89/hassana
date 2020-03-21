@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
 import { slogan } from '../PageInfo.json';
-import Testimonials from '../Dashboard/Testimonials';
 import './Dashboard.css';
 
 
@@ -31,12 +30,14 @@ class Dashboard extends React.Component {
 
   render() {
     const { title } = this.state;
+    const { dashboard } = this.props;
+    const { Component } = dashboard;
     return (
       <>
         <header><Navbar /></header>
         <main className="dashboard-section">
           <div><h1>{title}</h1></div>
-          <Testimonials />
+          <Component />
         </main>
       </>
     );
@@ -46,10 +47,12 @@ class Dashboard extends React.Component {
 Dashboard.propTypes = {
   session: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  dashboard: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   session: state.session,
+  dashboard: state.dashboard,
 });
 
 const DashboardWrapper = connect(mapStateToProps, null)(Dashboard);
