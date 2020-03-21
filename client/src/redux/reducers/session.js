@@ -3,7 +3,7 @@ const defaultSession = {
     id: '',
     username: '',
   },
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 const session = (state = defaultSession, { type, user }) => {
