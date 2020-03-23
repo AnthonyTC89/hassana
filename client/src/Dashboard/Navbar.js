@@ -41,6 +41,7 @@ class Navbar extends React.Component {
       { name: 'Products', text: 'Productos' },
       { name: 'Testimonials', text: 'Testimonios' },
       { name: 'Contact', text: 'Contacto' },
+      { name: 'Images', text: 'Imagenes' },
     ];
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

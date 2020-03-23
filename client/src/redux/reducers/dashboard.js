@@ -5,6 +5,7 @@ import Services from '../../Dashboard/Services';
 import Slogan from '../../Dashboard/Slogan';
 import Testimonials from '../../Dashboard/Testimonials';
 import Contact from '../../Dashboard/Contact';
+import Images from '../../Dashboard/Images';
 
 const defaultDashboard = {
   Component: Slogan,
@@ -18,6 +19,7 @@ const collection = {
   Services,
   Testimonials,
   Contact,
+  Images,
 };
 
 const session = (state = defaultDashboard, { type, component }) => {

@@ -144,5 +144,15 @@
   "HTTPresponses": {
     "404": "Usuario no encontrado",
     "401": "Contraseña incorrecta"
-  }
+  },
+  "messages": {
+    "001": "Usuario no encontrado",
+    "002": "Contraseña incorrecta",
+    "003": "Imagen guardada correctamente",
+    "004": "Error en guardar imagen",
+    "005": "Seleccione una imagen",
+    "006": "Error al cargar las imágenes",
+    "007": "Ya existe la imagen"
+  },
+  "images": []
 }
