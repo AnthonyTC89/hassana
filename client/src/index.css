@@ -33,3 +33,7 @@ footer, nav {
 .row {
   padding: 1rem;
 }
+
+.icon-loading {
+  width: 10rem;
+}

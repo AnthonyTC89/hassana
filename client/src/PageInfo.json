@@ -152,7 +152,9 @@
     "004": "Error en guardar imagen",
     "005": "Seleccione una imagen",
     "006": "Error al cargar las imágenes",
-    "007": "Ya existe la imagen"
+    "007": "Ya existe la imagen",
+    "008": "Imagen eliminada",
+    "009": "Error al eliminar imagen"
   },
   "images": []
 }
