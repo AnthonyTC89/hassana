@@ -15,7 +15,7 @@ class Testimonials extends React.Component {
       testimonials: [],
       loading: false,
       showNewForm: false,
-      testimonial: '',
+      text: '',
       imgSelected: false,
       image: null,
       modalVisible: false,
@@ -55,7 +55,6 @@ class Testimonials extends React.Component {
   }
 
   closeModal(image) {
-    console.log(image);
     this.setState({
       modalVisible: false,
       imgSelected: image !== null,
@@ -70,8 +69,14 @@ class Testimonials extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
+    const { text, image } = this.state;
+    try {
+      await axios.put('api/testimonials', { text, recipe: image.id });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {

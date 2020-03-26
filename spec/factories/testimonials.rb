@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :testimonial do
-    description { "MyString" }
+    text { "MyString" }
+    recipe { nil }
   end
 end
