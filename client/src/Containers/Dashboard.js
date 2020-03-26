@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
@@ -11,6 +12,7 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       title: slogan.title,
+      recipes: [],
     };
   }
 
@@ -19,6 +21,7 @@ class Dashboard extends React.Component {
     if (!session.isLoggedIn) {
       history.push('/login');
     }
+    this.getRecipes();
   }
 
   componentDidUpdate() {
@@ -28,8 +31,19 @@ class Dashboard extends React.Component {
     }
   }
 
+  async getRecipes() {
+    try {
+      const recipes = await axios.get('/api/recipes');
+      this.setState({
+        recipes: recipes.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
-    const { title } = this.state;
+    const { title, recipes } = this.state;
     const { dashboard } = this.props;
     const { Component } = dashboard;
     return (
@@ -37,7 +51,7 @@ class Dashboard extends React.Component {
         <header><Navbar /></header>
         <main className="dashboard-section">
           <div><h1>{title}</h1></div>
-          <Component />
+          <Component recipes={recipes} />
         </main>
       </>
     );

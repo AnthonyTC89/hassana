@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import uuidv4 from 'uuid/v4';
 import { uploadFile, deleteFile } from 'react-s3';
-import { messages, images } from '../PageInfo.json';
+import { messages } from '../PageInfo.json';
 import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Images.css';
@@ -12,9 +13,9 @@ class Images extends React.Component {
     super(props);
     this.state = {
       file: null,
-      msg: 'mensaje',
+      msg: '',
       loading: false,
-      allImages: images,
+      allImages: props.recipes,
     };
     this.configS3 = {
       bucketName: process.env.REACT_APP_S3_BUCKET,
@@ -27,7 +28,7 @@ class Images extends React.Component {
   }
 
   componentDidMount() {
-    this.getInfo();
+    // this.getInfo();
   }
 
   async getInfo() {
@@ -162,5 +163,9 @@ class Images extends React.Component {
     );
   }
 }
+
+Images.propTypes = {
+  recipes: PropTypes.array.isRequired,
+};
 
 export default Images;
