@@ -14,16 +14,20 @@ class Testimonials extends React.Component {
     this.state = {
       testimonials: [],
       loading: false,
-      showNewForm: false,
-      text: '',
+      formVisible: false,
       imgSelected: false,
-      image: null,
       modalVisible: false,
+      message: '',
+      id: null, // used in edit Testimonial
+      text: '',
+      image: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.showForm = this.showForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount() {
@@ -35,11 +39,11 @@ class Testimonials extends React.Component {
       loading: true,
     });
     try {
-      const testimonials = await axios.get('/api/testimonials');
+      const testimonials = await axios.get('/api/full_testimonials');
       this.setState({
         testimonials: testimonials.data,
         loading: false,
-        showNewForm: testimonials.data.length === 0,
+        formVisible: testimonials.data.length === 0,
       });
     } catch (err) {
       this.setState({
@@ -68,29 +72,61 @@ class Testimonials extends React.Component {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async handleSubmit(e) {
     e.preventDefault();
-    const { text, image } = this.state;
+    const { id, text, image } = this.state;
     try {
-      await axios.put('api/testimonials', { text, recipe: image.id });
+      if (id !== null) {
+        await axios.put(`api/testimonials/${id}`, { text, recipe_id: image.id });
+      } else {
+        await axios.post('api/testimonials', { text, recipe_id: image.id });
+      }
+      this.setState({
+        message: 'accion exitosa',
+      });
     } catch (err) {
-      console.log(err);
+      this.setState({
+        message: 'error',
+      });
     }
   }
 
+  showForm(t) {
+    this.setState({
+      id: t === null ? null : t.id,
+      text: t === null ? '' : t.text,
+      image: t === null ? null : { id: t.recipe_id, bucket: t.bucket, location: t.location },
+      imgSelected: t !== null,
+      formVisible: true,
+    });
+  }
+
+  closeForm() {
+    this.setState({
+      formVisible: false,
+    });
+  }
+
   render() {
-    const { testimonials, loading, showNewForm,
-      testimonial, imgSelected, image, modalVisible } = this.state;
+    const { testimonials, loading, formVisible, message,
+      text, imgSelected, image, modalVisible } = this.state;
     const { recipes } = this.props;
     return (
       <section className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
         <h2>Testimonios</h2>
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={formVisible ? this.closeForm : () => this.showForm(null)}
+        >
+          {formVisible ? 'Ver Testimonios' : 'Nuevo Testimonio'}
+        </button>
+        {message}
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
           : null}
-        {showNewForm
+        {formVisible
           ? (
             <div className="row">
               <picture className="col-12 col-sm-6 testimonial-img-selected">
@@ -110,8 +146,8 @@ class Testimonials extends React.Component {
                   className="form-control testimonial-area"
                   onChange={this.handleChange}
                   placeholder="Ingrese el texto aqui"
-                  name="testimonial"
-                  value={testimonial}
+                  name="text"
+                  value={text}
                   rows="7"
                 />
                 <button type="submit" className="btn btn-success">Guardar</button>
@@ -120,11 +156,17 @@ class Testimonials extends React.Component {
           )
           : testimonials.map((t) => (
             <article key={uuidv4()} className="row testimonial">
-              <picture className="col-12 col-sm-6">
-                <img className="testimonial-img" src={t.img} alt="hassana-testimonial" />
+              <div className="col-12">
+                <button className="btn btn-success" type="button" onClick={() => this.showForm(t)}>Editar</button>
+              </div>
+              <picture className="col-12 col-sm-6 testimonial-picture">
+                <img className="testimonial-img" src={t.location} alt={t.key} />
               </picture>
               <div className="col-12 col-sm-6 testimonial-text">
-                <p>{t.description}</p>
+                <p>{t.text}</p>
+              </div>
+              <div className="col-12">
+                <button className="btn btn-danger" type="button" onClick={() => this.handleDelete(t)}>Eliminar</button>
               </div>
             </article>
           ))}

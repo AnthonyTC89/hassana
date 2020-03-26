@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   namespace :api do
     resources :testimonials, only: [:index, :create, :update, :destroy]
+    get "/full_testimonials", to: "testimonials#full_index"
     resources :recipes, only: [:index, :create, :destroy]
   end
 end
