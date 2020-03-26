@@ -28,6 +28,7 @@ class Testimonials extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.showForm = this.showForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -81,6 +82,19 @@ class Testimonials extends React.Component {
       } else {
         await axios.post('api/testimonials', { text, recipe_id: image.id });
       }
+      this.setState({
+        message: 'accion exitosa',
+      });
+    } catch (err) {
+      this.setState({
+        message: 'error',
+      });
+    }
+  }
+
+  async handleDelete(t) {
+    try {
+      await axios.delete(`api/testimonials/${t.id}`);
       this.setState({
         message: 'accion exitosa',
       });
