@@ -21,7 +21,8 @@ class Testimonials extends React.Component {
       message: '',
       id: null, // used in edit Testimonial
       text: '',
-      image: null,
+      status: true,
+      recipe: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,7 @@ class Testimonials extends React.Component {
     this.showForm = this.showForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleChangeCheckBox = this.handleChangeCheckBox.bind(this);
   }
 
   componentDidMount() {
@@ -60,11 +62,11 @@ class Testimonials extends React.Component {
     });
   }
 
-  closeModal(image) {
+  closeModal(recipe) {
     this.setState({
       modalVisible: false,
-      imgSelected: image !== null,
-      image,
+      imgSelected: recipe !== null,
+      recipe,
     });
   }
 
@@ -74,25 +76,32 @@ class Testimonials extends React.Component {
     });
   }
 
+  handleChangeCheckBox(e) {
+    this.setState({
+      status: e.target.checked,
+    });
+  }
+
   async handleSubmit(e) {
     e.preventDefault();
-    const { id, text, image, testimonials } = this.state;
+    const { id, text, recipe, status, testimonials } = this.state;
     try {
       const res = id !== null
-        ? await axios.put(`api/testimonials/${id}`, { text, recipe_id: image.id })
-        : await axios.post('api/testimonials', { text, recipe_id: image.id });
+        ? await axios.put(`api/testimonials/${id}`, { text, status, recipe_id: recipe.id })
+        : await axios.post('api/testimonials', { text, status, recipe_id: recipe.id });
 
       const newTestimonial = {
         id: res.data.id,
         text,
-        recipe_id: image.id,
-        location: image.location,
-        key: image.key,
+        status,
+        recipe_id: recipe.id,
+        location: recipe.location,
+        key: recipe.key,
       };
       if (res.status === 201) { // Created
         this.setState((prevState) => ({
           message: 'Testimonio creado exitosamente',
-          testimonials: [...prevState.testimonials, newTestimonial],
+          testimonials: [newTestimonial, ...prevState.testimonials],
           formVisible: false,
         }));
       }
@@ -100,7 +109,7 @@ class Testimonials extends React.Component {
         const auxTestimonials = testimonials.filter((item) => item.id !== id);
         this.setState({
           message: 'Testimonio actualizado exitosamente',
-          testimonials: [...auxTestimonials, newTestimonial],
+          testimonials: [newTestimonial, ...auxTestimonials],
           formVisible: false,
         });
       }
@@ -129,9 +138,11 @@ class Testimonials extends React.Component {
     this.setState({
       id: t === null ? null : t.id,
       text: t === null ? '' : t.text,
-      image: t === null ? null : { id: t.recipe_id, location: t.location, key: t.key },
+      status: t === null ? true : t.status,
+      recipe: t === null ? null : { id: t.recipe_id, location: t.location, key: t.key },
       imgSelected: t !== null,
       formVisible: true,
+      message: '',
     });
   }
 
@@ -142,8 +153,8 @@ class Testimonials extends React.Component {
   }
 
   render() {
-    const { testimonials, loading, formVisible, message,
-      text, imgSelected, image, modalVisible } = this.state;
+    const { testimonials, loading, formVisible, message, status,
+      text, imgSelected, recipe, modalVisible } = this.state;
     const { recipes } = this.props;
     return (
       <section className="container">
@@ -172,7 +183,7 @@ class Testimonials extends React.Component {
                   Seleccione una imagen
                 </button>
                 {imgSelected
-                  ? <img className="testimonial-image" src={image.location} alt="testimonial-selected" />
+                  ? <img className="testimonial-image" src={recipe.location} alt="testimonial-selected" />
                   : null}
               </picture>
               <form onSubmit={this.handleSubmit} className="col-12 col-sm-6 testimonial-form">
@@ -184,6 +195,16 @@ class Testimonials extends React.Component {
                   value={text}
                   rows="7"
                 />
+                <div className="form-check">
+                  <input
+                    id="chk-status"
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={status}
+                    onChange={this.handleChangeCheckBox}
+                  />
+                  <label className="form-check-label" htmlFor="chk-status">Activo</label>
+                </div>
                 <button type="submit" className="btn btn-success">Guardar</button>
               </form>
             </div>
@@ -197,7 +218,7 @@ class Testimonials extends React.Component {
                 <img className="testimonial-img" src={t.location} alt={t.key} />
               </picture>
               <div className="col-12 col-sm-6 testimonial-text">
-                <p>{t.text}</p>
+                <p className={t.status ? '' : 'text-line-through'}>{t.text}</p>
               </div>
               <div className="col-12">
                 <button className="btn btn-danger" type="button" onClick={() => this.handleDelete(t)}>Eliminar</button>

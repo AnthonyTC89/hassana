@@ -9,7 +9,7 @@ module Api
     end
 
     def full_index
-      @query = "SELECT t.id, t.text, t.recipe_id, r.location, r.key FROM testimonials as t INNER JOIN recipes as r ON t.recipe_id = r.id"
+      @query = "SELECT t.id, t.text, t.status, t.recipe_id, r.location, r.key FROM testimonials as t INNER JOIN recipes as r ON t.recipe_id = r.id"
       @testimonials = Testimonial.connection.select_all(@query).to_a
       render json: @testimonials
     end
@@ -22,11 +22,10 @@ module Api
     # POST /testimonials
     def create
       @testimonial = Testimonial.new(testimonial_params)
-
       if @testimonial.save
         render json: @testimonial, status: :created
       else
-        render json: @testimonial.errors, status: :unprocessable_entity
+        render json: @testimonial.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -52,7 +51,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def testimonial_params
-        params.require(:testimonial).permit(:text, :recipe_id)
+        params.require(:testimonial).permit(:text, :status, :recipe_id)
       end
   end
 end

@@ -26,6 +26,12 @@
         "react/forbid-prop-types": "off",
         "object-curly-newline": "off",
         "import/no-unresolved": "off",
-        "arrow-parens": "off"
+        "arrow-parens": "off",
+        "jsx-a11y/label-has-associated-control": [ 2, {
+            "labelComponents": ["CustomInputLabel"],
+            "labelAttributes": ["label"],
+            "controlComponents": ["CustomInput"],
+            "depth": 3
+          }]
     }
 }

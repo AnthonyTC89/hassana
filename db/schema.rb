@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_171206) do
 
   create_table "testimonials", force: :cascade do |t|
     t.string "text"
+    t.boolean "status"
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

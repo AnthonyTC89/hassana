@@ -41,3 +41,7 @@ footer, nav {
 .img-button {
   width: 5rem;
 }
+
+.text-line-through {
+  text-decoration: line-through;
+}
