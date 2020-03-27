@@ -22,7 +22,7 @@ const collection = {
   Images,
 };
 
-const session = (state = defaultDashboard, { type, component }) => {
+const dashboard = (state = defaultDashboard, { type, component }) => {
   switch (type) {
     case 'UPDATE_DASHBOARD':
       return {
@@ -33,4 +33,4 @@ const session = (state = defaultDashboard, { type, component }) => {
   }
 };
 
-export default session;
+export default dashboard;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import RecipesModal from './RecipesModal';
 import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -212,4 +213,10 @@ Testimonials.propTypes = {
   recipes: PropTypes.array.isRequired,
 };
 
-export default Testimonials;
+const mapStateToProps = (state) => ({
+  recipes: state.recipes,
+});
+
+const TestimonialsWrapper = connect(mapStateToProps, null)(Testimonials);
+
+export default TestimonialsWrapper;
