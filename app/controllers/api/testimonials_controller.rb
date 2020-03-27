@@ -9,7 +9,7 @@ module Api
     end
 
     def full_index
-      @query = "SELECT * FROM testimonials as t INNER JOIN recipes as r ON t.recipe_id = r.id"
+      @query = "SELECT t.id, t.text, t.recipe_id, r.location, r.key FROM testimonials as t INNER JOIN recipes as r ON t.recipe_id = r.id"
       @testimonials = Testimonial.connection.select_all(@query).to_a
       render json: @testimonials
     end

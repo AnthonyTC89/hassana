@@ -75,16 +75,34 @@ class Testimonials extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const { id, text, image } = this.state;
+    const { id, text, image, testimonials } = this.state;
     try {
-      if (id !== null) {
-        await axios.put(`api/testimonials/${id}`, { text, recipe_id: image.id });
-      } else {
-        await axios.post('api/testimonials', { text, recipe_id: image.id });
+      const res = id !== null
+        ? await axios.put(`api/testimonials/${id}`, { text, recipe_id: image.id })
+        : await axios.post('api/testimonials', { text, recipe_id: image.id });
+
+      const newTestimonial = {
+        id: res.data.id,
+        text,
+        recipe_id: image.id,
+        location: image.location,
+        key: image.key,
+      };
+      if (res.status === 201) { // Created
+        this.setState((prevState) => ({
+          message: 'Testimonio creado exitosamente',
+          testimonials: [...prevState.testimonials, newTestimonial],
+          formVisible: false,
+        }));
       }
-      this.setState({
-        message: 'accion exitosa',
-      });
+      if (res.status === 200) { // OK - Updated
+        const auxTestimonials = testimonials.filter((item) => item.id !== id);
+        this.setState({
+          message: 'Testimonio actualizado exitosamente',
+          testimonials: [...auxTestimonials, newTestimonial],
+          formVisible: false,
+        });
+      }
     } catch (err) {
       this.setState({
         message: 'error',
@@ -95,9 +113,10 @@ class Testimonials extends React.Component {
   async handleDelete(t) {
     try {
       await axios.delete(`api/testimonials/${t.id}`);
-      this.setState({
-        message: 'accion exitosa',
-      });
+      this.setState((prevState) => ({
+        message: 'Testimonio borrado.',
+        testimonials: prevState.testimonials.filter((item) => item.id !== t.id),
+      }));
     } catch (err) {
       this.setState({
         message: 'error',
@@ -109,7 +128,7 @@ class Testimonials extends React.Component {
     this.setState({
       id: t === null ? null : t.id,
       text: t === null ? '' : t.text,
-      image: t === null ? null : { id: t.recipe_id, bucket: t.bucket, location: t.location },
+      image: t === null ? null : { id: t.recipe_id, location: t.location, key: t.key },
       imgSelected: t !== null,
       formVisible: true,
     });
@@ -136,7 +155,7 @@ class Testimonials extends React.Component {
         >
           {formVisible ? 'Ver Testimonios' : 'Nuevo Testimonio'}
         </button>
-        {message}
+        <p>{message}</p>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
           : null}
