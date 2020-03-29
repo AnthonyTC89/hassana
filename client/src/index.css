@@ -45,3 +45,28 @@ footer, nav {
 .text-line-through {
   text-decoration: line-through;
 }
+
+.picture-selection {
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-selected {
+  width: 10rem;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textarea-form {
+  width: 90%;
+  max-width: 20rem;
+}
+
+.item-picture {
+  margin: 1rem 0;
+}
