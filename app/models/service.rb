@@ -1,4 +1,4 @@
-class Promotion < ApplicationRecord
+class Service < ApplicationRecord
   belongs_to :recipe
 
   validates :title, presence: true
