@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_124806) do
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.string "befenits"
+    t.string "benefits"
     t.string "status", default: "t"
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false

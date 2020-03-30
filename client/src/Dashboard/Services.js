@@ -206,6 +206,7 @@ class Services extends React.Component {
                   placeholder="Ingrese el titulo aqui"
                   name="title"
                   value={title}
+                  required
                 />
                 <textarea
                   className="form-control textarea-form"
@@ -214,6 +215,7 @@ class Services extends React.Component {
                   name="text"
                   value={text}
                   rows="7"
+                  required
                 />
                 <textarea
                   className="form-control textarea-form"

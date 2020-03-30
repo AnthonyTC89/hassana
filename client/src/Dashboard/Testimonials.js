@@ -202,6 +202,7 @@ class Testimonials extends React.Component {
                   name="text"
                   value={text}
                   rows="7"
+                  required
                 />
                 <div className="form-check">
                   <input
