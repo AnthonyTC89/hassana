@@ -18,7 +18,7 @@ class Promotions extends React.Component {
       imgSelected: false,
       modalVisible: false,
       message: '',
-      id: null, // used in edit Testimonial
+      id: null, // used in edit Promotions
       title: '',
       text: '',
       status: true,
@@ -85,6 +85,12 @@ class Promotions extends React.Component {
   async handleSubmit(e) {
     e.preventDefault();
     const { id, title, text, recipe, status, promotions } = this.state;
+    if (recipe === null) {
+      this.setState({
+        message: 'Seleccione una imagen',
+      });
+      return;
+    }
     try {
       const data = { title, text, status, recipe_id: recipe.id };
       const res = id !== null
@@ -159,10 +165,11 @@ class Promotions extends React.Component {
     const { promotions, loading, formVisible, message,
       title, text, status, recipe, imgSelected, modalVisible } = this.state;
     const { recipes } = this.props;
+    const header = `Promociones (${promotions.length})`;
     return (
       <section className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
-        <h2>Promociones</h2>
+        <h2>{header}</h2>
         <button
           className="btn btn-primary"
           type="button"
@@ -196,6 +203,7 @@ class Promotions extends React.Component {
                   placeholder="Ingrese el titulo aqui"
                   name="title"
                   value={title}
+                  required
                 />
                 <textarea
                   className="form-control textarea-form"
@@ -204,6 +212,7 @@ class Promotions extends React.Component {
                   name="text"
                   value={text}
                   rows="7"
+                  required
                 />
                 <div>
                   <input

@@ -115,10 +115,10 @@ class Images extends React.Component {
   render() {
     const { loading, msg } = this.state;
     const { recipes } = this.props;
-    const title = `Imagenes (${recipes.length})`;
+    const header = `Imagenes (${recipes.length})`;
     return (
       <section className="container">
-        <h2>{title}</h2>
+        <h2>{header}</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
           : null}

@@ -85,6 +85,12 @@ class Testimonials extends React.Component {
   async handleSubmit(e) {
     e.preventDefault();
     const { id, text, recipe, status, testimonials } = this.state;
+    if (recipe === null) {
+      this.setState({
+        message: 'Seleccione una imagen',
+      });
+      return;
+    }
     try {
       const data = { text, status, recipe_id: recipe.id };
       const res = id !== null
@@ -107,7 +113,7 @@ class Testimonials extends React.Component {
         }));
       }
       if (res.status === 200) { // OK - Updated
-        const auxTestimonials = testimonials.filter((item) => item.id !== id);
+        const auxTestimonials = testimonials.filter((i) => i.id !== id);
         this.setState({
           message: 'Testimonio actualizado exitosamente',
           testimonials: [newTestimonial, ...auxTestimonials],
@@ -121,12 +127,12 @@ class Testimonials extends React.Component {
     }
   }
 
-  async handleDelete(t) {
+  async handleDelete(item) {
     try {
-      await axios.delete(`api/testimonials/${t.id}`);
+      await axios.delete(`api/testimonials/${item.id}`);
       this.setState((prevState) => ({
         message: 'Testimonio borrado.',
-        testimonials: prevState.testimonials.filter((item) => item.id !== t.id),
+        testimonials: prevState.testimonials.filter((i) => i.id !== item.id),
       }));
     } catch (err) {
       this.setState({
@@ -135,13 +141,13 @@ class Testimonials extends React.Component {
     }
   }
 
-  showForm(t) {
+  showForm(item) {
     this.setState({
-      id: t === null ? null : t.id,
-      text: t === null ? '' : t.text,
-      status: t === null ? true : t.status,
-      recipe: t === null ? null : { id: t.recipe_id, location: t.location, key: t.key },
-      imgSelected: t !== null,
+      id: item === null ? null : item.id,
+      text: item === null ? '' : item.text,
+      status: item === null ? true : item.status,
+      recipe: item === null ? null : { id: item.recipe_id, location: item.location, key: item.key },
+      imgSelected: item !== null,
       formVisible: true,
       message: '',
     });
@@ -157,10 +163,11 @@ class Testimonials extends React.Component {
     const { testimonials, loading, formVisible, message, status,
       text, imgSelected, recipe, modalVisible } = this.state;
     const { recipes } = this.props;
+    const header = `Testimonios (${testimonials.length})`;
     return (
       <section className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
-        <h2>Testimonios</h2>
+        <h2>{header}</h2>
         <button
           className="btn btn-primary"
           type="button"

@@ -7,10 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 const RecipesModal = (props) => {
   const { recipes, modalVisible, closeModal } = props;
   const size = '80%';
+  const header = `Coleccion de Imagenes (${recipes.length})`;
   return (
     <Modal visible={modalVisible} width={size} height={size} onClickAway={() => closeModal(null)}>
       <div className="container">
-        <h1>Coleccion de Imagenes</h1>
+        <h2>{header}</h2>
         <div className="row">
           {recipes.map((i) => (
             <div key={uuidv4()} className="col-6 col-sm-4 col-md-3 col-lg-2">

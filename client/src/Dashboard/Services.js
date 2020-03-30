@@ -18,7 +18,7 @@ class Services extends React.Component {
       imgSelected: false,
       modalVisible: false,
       message: '',
-      id: null, // used in edit Testimonial
+      id: null, // used in edit Services
       title: '',
       text: '',
       benefits: '',
@@ -86,6 +86,12 @@ class Services extends React.Component {
   async handleSubmit(e) {
     e.preventDefault();
     const { id, title, text, benefits, recipe, status, services } = this.state;
+    if (recipe === null) {
+      this.setState({
+        message: 'Seleccione una imagen',
+      });
+      return;
+    }
     try {
       const data = { title, text, benefits, status, recipe_id: recipe.id };
       const res = id !== null
@@ -162,10 +168,11 @@ class Services extends React.Component {
     const { services, loading, formVisible, message, modalVisible,
       title, text, benefits, status, recipe, imgSelected } = this.state;
     const { recipes } = this.props;
+    const header = `Servicios (${services.length})`;
     return (
       <section className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
-        <h2>Servicios</h2>
+        <h2>{header}</h2>
         <button
           className="btn btn-primary"
           type="button"
