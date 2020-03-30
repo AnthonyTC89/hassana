@@ -70,3 +70,7 @@ footer, nav {
 .item-picture {
   margin: 1rem 0;
 }
+
+.list-item {
+  text-align: left;
+}

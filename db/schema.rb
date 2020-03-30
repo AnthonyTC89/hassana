@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_230626) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.string "benefits", default: [], array: true
+    t.string "benefits"
     t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false

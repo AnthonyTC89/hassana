@@ -174,7 +174,7 @@ class Testimonials extends React.Component {
         {formVisible
           ? (
             <div className="row">
-              <picture className="col-12 col-sm-6 testimonial-img-selected">
+              <picture className="col-12 col-sm-6 picture-selection">
                 <button
                   type="button"
                   className="btn btn-success"
@@ -183,12 +183,12 @@ class Testimonials extends React.Component {
                   Seleccione una imagen
                 </button>
                 {imgSelected
-                  ? <img className="testimonial-image" src={recipe.location} alt="testimonial-selected" />
+                  ? <img className="image-selected" src={recipe.location} alt={recipe.key} />
                   : null}
               </picture>
-              <form onSubmit={this.handleSubmit} className="col-12 col-sm-6 testimonial-form">
+              <form onSubmit={this.handleSubmit} className="col-12 col-sm-6 input-form">
                 <textarea
-                  className="form-control testimonial-area"
+                  className="form-control textarea-form"
                   onChange={this.handleChange}
                   placeholder="Ingrese el texto aqui"
                   name="text"
@@ -210,14 +210,14 @@ class Testimonials extends React.Component {
             </div>
           )
           : testimonials.map((t) => (
-            <article key={uuidv4()} className="row testimonial">
+            <article key={uuidv4()} className="row">
               <div className="col-12">
                 <button className="btn btn-success" type="button" onClick={() => this.showForm(t)}>Editar</button>
               </div>
-              <picture className="col-12 col-sm-6 testimonial-picture">
-                <img className="testimonial-img" src={t.location} alt={t.key} />
+              <picture className="col-12 col-sm-6 item-picture">
+                <img src={t.location} alt={t.key} />
               </picture>
-              <div className="col-12 col-sm-6 testimonial-text">
+              <div className="col-12 col-sm-6">
                 <p className={t.status ? '' : 'text-line-through'}>{t.text}</p>
               </div>
               <div className="col-12">
