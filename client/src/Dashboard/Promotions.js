@@ -86,9 +86,10 @@ class Promotions extends React.Component {
     e.preventDefault();
     const { id, title, text, recipe, status, promotions } = this.state;
     try {
+      const data = { title, text, status, recipe_id: recipe.id };
       const res = id !== null
-        ? await axios.put(`api/promotions/${id}`, { title, text, status, recipe_id: recipe.id })
-        : await axios.post('api/promotions', { title, text, status, recipe_id: recipe.id });
+        ? await axios.put(`api/promotions/${id}`, data)
+        : await axios.post('api/promotions', data);
 
       const newPromotion = {
         id: res.data.id,
@@ -230,7 +231,7 @@ class Promotions extends React.Component {
                 </button>
               </div>
               <picture className="col-12 col-sm-6 item-picture">
-                <img src={item.location} alt={item.key} />
+                <img className="item-image" src={item.location} alt={item.key} />
               </picture>
               <div className="col-12 col-sm-6">
                 <p>{item.title}</p>

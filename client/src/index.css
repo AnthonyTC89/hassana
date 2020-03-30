@@ -71,6 +71,10 @@ footer, nav {
   margin: 1rem 0;
 }
 
+.item-image {
+  max-width: 100%;
+}
+
 .list-item {
   text-align: left;
 }

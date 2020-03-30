@@ -87,11 +87,10 @@ class Services extends React.Component {
     e.preventDefault();
     const { id, title, text, benefits, recipe, status, services } = this.state;
     try {
+      const data = { title, text, benefits, status, recipe_id: recipe.id };
       const res = id !== null
-        ? await axios.put(`api/services/${id}`,
-          { title, text, benefits, status, recipe_id: recipe.id })
-        : await axios.post('api/services',
-          { title, text, benefits, status, recipe_id: recipe.id });
+        ? await axios.put(`api/services/${id}`, data)
+        : await axios.post('api/services', data);
 
       const newService = {
         id: res.data.id,
@@ -243,7 +242,7 @@ class Services extends React.Component {
                 </button>
               </div>
               <picture className="col-12 col-sm-6 item-picture">
-                <img src={item.location} alt={item.key} />
+                <img className="item-image" src={item.location} alt={item.key} />
               </picture>
               <div className="col-12 col-sm-6">
                 <h4>{item.title}</h4>

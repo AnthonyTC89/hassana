@@ -86,9 +86,10 @@ class Testimonials extends React.Component {
     e.preventDefault();
     const { id, text, recipe, status, testimonials } = this.state;
     try {
+      const data = { text, status, recipe_id: recipe.id };
       const res = id !== null
-        ? await axios.put(`api/testimonials/${id}`, { text, status, recipe_id: recipe.id })
-        : await axios.post('api/testimonials', { text, status, recipe_id: recipe.id });
+        ? await axios.put(`api/testimonials/${id}`, data)
+        : await axios.post('api/testimonials', data);
 
       const newTestimonial = {
         id: res.data.id,
