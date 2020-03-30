@@ -1,6 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
-import { products } from '../PageInfo.json';
+import axios from 'axios';
+import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Products.css';
 
@@ -8,7 +9,8 @@ class Products extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allProducts: products,
+      products: [],
+      loading: false,
     };
   }
 
@@ -16,30 +18,48 @@ class Products extends React.Component {
     this.getInfo();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async getInfo() {
-    // eslint-disable-next-line no-console
-    console.log('getInfo Products');
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await axios.get('/api/full_products');
+      this.setState({
+        products: res.data,
+        loading: false,
+      });
+    } catch (err) {
+      this.setState({
+        loading: false,
+      });
+    }
   }
 
   render() {
-    const { allProducts } = this.state;
+    const { products, loading } = this.state;
+    if (products.length === 0) { return null; }
     return (
       <section className="container-fluid products-section" id="products">
         <h2>Productos</h2>
+        {loading
+          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+          : null}
         <div className="row">
-          {allProducts.map((p) => (
+          {products.map((item) => (
             <article key={uuidv4()} className="col product">
-              <img className="product-img" src={p.image} alt="hassana-product" />
-              <h4>{p.title}</h4>
-              <p>{p.description}</p>
-              <ul className="benefits-list">
-                {p.benefits.map((b) => (
-                  <li key={uuidv4()}>
-                    <small>{b}</small>
-                  </li>
-                ))}
-              </ul>
+              <img className="product-img" src={item.location} alt={item.key} />
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+              {item.benefits === '' ? null
+                : (
+                  <ul className="benefits-list">
+                    {item.benefits.split('. ').map((b) => (
+                      <li key={uuidv4()} className="list-item">
+                        <p>{b}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
             </article>
           ))}
         </div>

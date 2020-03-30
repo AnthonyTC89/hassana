@@ -1,6 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
-import { promotions } from '../PageInfo.json';
+import axios from 'axios';
+import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Promotions.css';
 
@@ -8,7 +9,8 @@ class Promotions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      promos: promotions,
+      promotions: [],
+      loading: false,
     };
   }
 
@@ -16,23 +18,38 @@ class Promotions extends React.Component {
     this.getInfo();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async getInfo() {
-    // eslint-disable-next-line no-console
-    console.log('getInfo promotions');
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await axios.get('/api/full_promotions');
+      this.setState({
+        promotions: res.data,
+        loading: false,
+      });
+    } catch (err) {
+      this.setState({
+        loading: false,
+      });
+    }
   }
 
   render() {
-    const { promos } = this.state;
+    const { promotions, loading } = this.state;
+    if (promotions.length === 0) { return null; }
     return (
       <section className="container promotions-section" id="promotions">
         <h2>Promociones</h2>
+        {loading
+          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+          : null}
         <div className="row">
-          {promos.map((p) => (
+          {promotions.map((item) => (
             <article key={uuidv4()} className="col promotion">
-              <img className="promo-image" src={p.image.src} alt={`${p.image.name}-promo`} />
-              <h3>{p.title}</h3>
-              <p>{p.description}</p>
+              <img className="promo-image" src={item.location} alt={item.key} />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>

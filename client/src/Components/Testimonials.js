@@ -1,6 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
-import { testimonials } from '../PageInfo.json';
+import axios from 'axios';
+import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Testimonials.css';
 
@@ -8,7 +9,8 @@ class Testimonials extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTestimonials: testimonials,
+      testimonials: [],
+      loading: false,
     };
   }
 
@@ -16,24 +18,39 @@ class Testimonials extends React.Component {
     this.getInfo();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async getInfo() {
-    // eslint-disable-next-line no-console
-    console.log('getInfo Testimonials');
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await axios.get('/api/full_testimonials');
+      this.setState({
+        testimonials: res.data,
+        loading: false,
+      });
+    } catch (err) {
+      this.setState({
+        loading: false,
+      });
+    }
   }
 
   render() {
-    const { allTestimonials } = this.state;
+    const { testimonials, loading } = this.state;
+    if (testimonials.length === 0) { return null; }
     return (
       <section className="container testimonials-section" id="testimonials">
         <h2>Testimonios</h2>
-        {allTestimonials.map((t) => (
+        {loading
+          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+          : null}
+        {testimonials.map((item) => (
           <article key={uuidv4()} className="row testimonial">
             <picture className="col-12 col-sm-6">
-              <img className="testimonial-img" src={t.img} alt="hassana-testimonial" />
+              <img className="testimonial-img" src={item.location} alt={item.key} />
             </picture>
             <div className="col-12 col-sm-6 testimonial-text">
-              <p>{t.description}</p>
+              <p>{item.text}</p>
             </div>
           </article>
         ))}
