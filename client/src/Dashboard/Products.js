@@ -131,15 +131,21 @@ class Products extends React.Component {
   }
 
   async handleDelete(item) {
+    this.setState({
+      message: '',
+      loading: true,
+    });
     try {
       await axios.delete(`api/products/${item.id}`);
       this.setState((prevState) => ({
         message: 'Producto eliminado.',
         products: prevState.products.filter((i) => i.id !== item.id),
+        loading: false,
       }));
     } catch (err) {
       this.setState({
         message: 'error',
+        loading: false,
       });
     }
   }

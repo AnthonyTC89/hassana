@@ -129,15 +129,21 @@ class Promotions extends React.Component {
   }
 
   async handleDelete(item) {
+    this.setState({
+      message: '',
+      loading: true,
+    });
     try {
       await axios.delete(`api/promotions/${item.id}`);
       this.setState((prevState) => ({
         message: 'Promocion borrada.',
         promotions: prevState.promotions.filter((i) => i.id !== item.id),
+        loading: false,
       }));
     } catch (err) {
       this.setState({
         message: 'error',
+        loading: false,
       });
     }
   }
