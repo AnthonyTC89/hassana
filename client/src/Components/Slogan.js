@@ -1,18 +1,18 @@
 import React from 'react';
-import uuidv4 from 'uuid/v4';
-import { slogan } from '../PageInfo.json';
+import Info from '../PageInfo.json';
+import Icons from '../Icons.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Slogan.css';
 
 class Slogan extends React.Component {
   constructor(props) {
     super(props);
-    const { imageLink, title, subTitle, social } = slogan;
+    const { headerTitle, headerText, headerRecipe, facebook } = Info;
     this.state = {
-      imageLink,
-      title,
-      subTitle,
-      social,
+      headerTitle,
+      headerText,
+      headerRecipe,
+      facebook,
     };
   }
 
@@ -27,22 +27,22 @@ class Slogan extends React.Component {
   }
 
   render() {
-    const { imageLink, title, subTitle, social } = this.state;
+    const { headerTitle, headerText, headerRecipe, facebook } = this.state;
     return (
       <section className="container-fluid slogan-section" id="home">
         <div className="row">
           <picture className="col-12 col-sm-6">
-            <img className="slogan-image" src={imageLink} alt="hassana-masajes-salud" />
+            <img className="slogan-image" src={headerRecipe} alt="hassana-masajes-salud" />
           </picture>
           <div className="col-12 col-sm-6 slogan-info">
-            <h1>{title}</h1>
-            <h3>{subTitle}</h3>
+            <h1>{headerTitle}</h1>
+            <h3>{headerText}</h3>
             <div className="social-list">
-              {social.map((s) => (
-                <a className="social-link" href={s.pageLink} key={uuidv4()}>
-                  <img className="social-icon" src={s.iconLink} alt={`${s.name}-icon`} />
+              {facebook === '' ? null : (
+                <a className="social-link" href={facebook}>
+                  <img className="social-icon" src={Icons.facebook} alt="facebook-icon" />
                 </a>
-              ))}
+              )}
             </div>
           </div>
         </div>

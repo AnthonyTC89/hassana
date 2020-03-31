@@ -1,19 +1,22 @@
 import React from 'react';
-import uuidv4 from 'uuid/v4';
 import GoogleMaps from './GoogleMaps';
-import { contact } from '../PageInfo.json';
+import Info from '../PageInfo.json';
+import Icons from '../Icons.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Contact.css';
-
 
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-    const { image, info, map } = contact;
+    const { contactTitle, contactEmail, contactMobile, contactAddress,
+      contactRecipe, mapZoom, mapLatitude, mapLongitude } = Info;
     this.state = {
-      image,
-      info,
-      map,
+      title: contactTitle,
+      recipe: contactRecipe,
+      email: contactEmail,
+      mobile: contactMobile,
+      address: contactAddress,
+      map: { zoom: mapZoom, lat: mapLatitude, lng: mapLongitude },
     };
   }
 
@@ -28,7 +31,7 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { image, info, map } = this.state;
+    const { title, recipe, email, mobile, address, map } = this.state;
     const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_KEY_API_GOOGLEMAPS}`;
     const containerElement = <div style={{ height: '20rem' }} />;
     const mapElement = <div style={{ height: '100%' }} />;
@@ -37,16 +40,22 @@ class Contact extends React.Component {
       <section className="container-fluid contact-section" id="contact">
         <div className="row">
           <picture className="col-12 col-md-4 order-3 order-md-1 contact-picture">
-            <img className="contact-img" src={image} alt="hassana-location" />
+            <img className="contact-img" src={recipe} alt="hassana-location" />
           </picture>
           <div className="col-12 col-md-4 order-1 order-md-2 contact-text">
-            <h2>Contacto</h2>
-            {info.map((i) => (
-              <div key={uuidv4()}>
-                <img className="contact-icon" src={i.icon} alt="hassana-icon" />
-                <p>{i.text}</p>
-              </div>
-            ))}
+            <h2>{title}</h2>
+            <div>
+              <img className="contact-icon" src={Icons.email} alt="hassana-icon" />
+              <p>{email}</p>
+            </div>
+            <div>
+              <img className="contact-icon" src={Icons.mobile} alt="hassana-icon" />
+              <p>{mobile}</p>
+            </div>
+            <div>
+              <img className="contact-icon" src={Icons.address} alt="hassana-icon" />
+              <p>{address}</p>
+            </div>
           </div>
           <div className="col-12 col-md-4 order-2 order-md-3 contact-map">
             <GoogleMaps

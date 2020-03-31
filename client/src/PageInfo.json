@@ -1,4 +1,23 @@
 {
+  "headerLogo": "https://picsum.photos/200",
+  "headerTitle": "Hassana Masaje & Salud",
+  "headerText": "Una manera inteligente de cuidarte",
+  "headerRecipe": "https://picsum.photos/800",
+  "facebook": "https://www.facebook.com/hassanamasajessalud/",
+  "instagram": "",
+  "youtube": "",
+  "twitter": "",
+  "aboutTitle": "¿Qué es Hassana?",
+  "aboutText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.",
+  "aboutRecipe": "https://picsum.photos/800",
+  "contactTitle": "Contactame",
+  "contactRecipe": "https://picsum.photos/800",
+  "contactEmail": "hassana-salud@gmail.com",
+  "contactMobile": "987654321",
+  "contactAddress": "JLByR, Arequipa",
+  "mapZoom": 15,
+  "mapLatitude": -16.4360,
+  "mapLongitude": -71.52605,
   "navbar": {
     "logo": "https://picsum.photos/200",
     "text": "Hassana Masaje & Salud"
@@ -20,26 +39,6 @@
       }
     ]
   },
-  "promotions": [
-    {
-      "title": "Promo1",
-      "description": "Descripcion1",
-      "image": 
-      {
-        "name": "promo1",
-        "src": "https://picsum.photos/700"
-      }
-    },
-    {
-      "title": "Promo2",
-      "description": "Descripcion2",
-      "image": 
-      {
-        "name": "promo2",
-        "src": "https://picsum.photos/700"
-      }
-    }
-  ],
   "aboutUs": {
     "title": "¿Qué es Hassana?",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.",
@@ -62,48 +61,6 @@
         "Recupera la vitalidad del cuerpo y eleva el sistema inmune."
       ],
       "image": "https://picsum.photos/550"    
-    },
-    {
-      "title": "Masajes",
-      "description": "Descripcion Maj",
-      "benefits": [
-        "benefit1",
-        "benefit2",
-        "benefit3"
-      ],
-      "image": "https://picsum.photos/550"
-    }
-  ],
-  "products": [
-    {
-      "title": "Product #1",
-      "description": "Descripcion Product #1",
-      "benefits": [
-        "benefit1",
-        "benefit2",
-        "benefit3"
-      ],
-      "image": "https://picsum.photos/450"
-    },
-    {
-      "title": "Product #2",
-      "description": "Descripcion Product #2",
-      "benefits": [
-        "benefit1",
-        "benefit2",
-        "benefit3"
-      ],
-      "image": "https://picsum.photos/450"
-    }
-  ],
-  "testimonials": [
-    {
-      "img": "https://picsum.photos/400",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi."
-    },
-    {
-      "img": "https://picsum.photos/400",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi."
     }
   ],
   "contact": {
@@ -155,6 +112,5 @@
     "007": "Ya existe la imagen",
     "008": "Imagen eliminada",
     "009": "Error al eliminar imagen"
-  },
-  "images": []
+  }
 }

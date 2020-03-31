@@ -1,16 +1,16 @@
 import React from 'react';
-import { aboutUs } from '../PageInfo.json';
+import Info from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './AboutUs.css';
 
 class AboutUs extends React.Component {
   constructor(props) {
     super(props);
-    const { title, text, image } = aboutUs;
+    const { aboutTitle, aboutText, aboutRecipe } = Info;
     this.state = {
-      title,
-      text,
-      image,
+      title: aboutTitle,
+      text: aboutText,
+      recipe: aboutRecipe,
     };
   }
 
@@ -25,7 +25,7 @@ class AboutUs extends React.Component {
   }
 
   render() {
-    const { title, text, image } = this.state;
+    const { title, text, recipe } = this.state;
     return (
       <section className="container-fluid about-section" id="aboutUs">
         <h2>{title}</h2>
@@ -34,7 +34,7 @@ class AboutUs extends React.Component {
             <p>{text}</p>
           </article>
           <picture className="col-12 col-sm-6 about-picture">
-            <img className="about-image" src={image.src} alt={`${image.name}`} />
+            <img className="about-image" src={recipe} alt="hassana-salud" />
           </picture>
         </div>
       </section>
