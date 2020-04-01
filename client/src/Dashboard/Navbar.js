@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import { connect } from 'react-redux';
-import { navbar } from '../PageInfo.json';
+import { navbarLogo } from '../PageInfo.json';
 import logout from '../redux/actions/logout';
 import updateDashboard from '../redux/actions/updateDashboard';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,9 +12,8 @@ import './Navbar.css';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    const { logo } = navbar;
     this.state = {
-      logo,
+      logo: navbarLogo,
     };
     this.logoutSession = this.logoutSession.bind(this);
   }

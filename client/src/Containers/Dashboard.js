@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
 import updateRecipes from '../redux/actions/updateRecipes';
-import { slogan } from '../PageInfo.json';
+import { headerTitle } from '../PageInfo.json';
 import './Dashboard.css';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: slogan.title,
+      title: headerTitle,
       message: '',
     };
   }

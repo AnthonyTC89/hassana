@@ -1,16 +1,16 @@
 {
-  "headerLogo": "https://picsum.photos/200",
-  "headerTitle": "Hassana Masaje & Salud",
+  "navbarTitle": "Hassana",
+  "navbarLogo": "https://picsum.photos/200",
+  "headerTitle": "Hassana Masaje y Salud",
   "headerText": "Una manera inteligente de cuidarte",
   "headerRecipe": "https://picsum.photos/800",
-  "facebook": "https://www.facebook.com/hassanamasajessalud/",
-  "instagram": "",
-  "youtube": "",
-  "twitter": "",
   "aboutTitle": "¿Qué es Hassana?",
   "aboutText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.",
   "aboutRecipe": "https://picsum.photos/800",
-  "contactTitle": "Contactame",
+  "servicesTitle": "Servicios",
+  "productsTitle": "Productos",
+  "testimonialsTitle": "Testimonios",
+  "contactTitle": "Contacto",
   "contactRecipe": "https://picsum.photos/800",
   "contactEmail": "hassana-salud@gmail.com",
   "contactMobile": "987654321",
@@ -18,35 +18,6 @@
   "mapZoom": 15,
   "mapLatitude": -16.4360,
   "mapLongitude": -71.52605,
-  "navbar": {
-    "logo": "https://picsum.photos/200",
-    "text": "Hassana Masaje & Salud"
-  },
-  "slogan": {
-    "title": "Hassana Masaje & Salud",
-    "subTitle": "Una manera inteligente de cuidarte",
-    "imageLink": "https://picsum.photos/800",
-    "social": [
-      {
-        "name": "facebook",
-        "pageLink": "https://www.facebook.com/hassanamasajessalud/",
-        "iconLink": "https://img.icons8.com/color/48/000000/facebook.png"
-      },
-      {
-        "name": "instagram",
-        "pageLink": "https://www.instagram.com/",
-        "iconLink": "https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"
-      }
-    ]
-  },
-  "aboutUs": {
-    "title": "¿Qué es Hassana?",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.",
-    "image": {
-      "name": "aboutUs",
-      "src": "https://picsum.photos/600"
-    }
-  },
   "services": [
     {
       "title": "Sillones Relajantes #1",

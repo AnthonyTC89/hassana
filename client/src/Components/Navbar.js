@@ -1,5 +1,5 @@
 import React from 'react';
-import Info from '../PageInfo.json';
+import { navbarTitle, navbarLogo } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
 import './Navbar.css';
@@ -7,10 +7,9 @@ import './Navbar.css';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    const { headerLogo, headerTitle } = Info;
     this.state = {
-      logo: headerLogo,
-      text: headerTitle,
+      logo: navbarLogo,
+      text: navbarTitle,
     };
   }
 

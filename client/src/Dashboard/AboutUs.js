@@ -1,15 +1,13 @@
 import React from 'react';
-import { aboutUs } from '../PageInfo.json';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './AboutUs.css';
 
 class AboutUs extends React.Component {
   constructor(props) {
     super(props);
-    const { title, text, image } = aboutUs;
     this.state = {
       // eslint-disable-next-line react/no-unused-state
-      title, text, image,
+      title: '',
     };
   }
 

@@ -6,3 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(username: 'admin', email: 'ptonyptc@gmail.com', password: 'admin', password_confirmation: 'admin')
+SocialNetwork.create(name: 'facebook', href: 'https://www.facebook.com/hassanamasajessalud/', src: 'https://img.icons8.com/bubbles/50/000000/facebook-new.png', status: 1)
+SocialNetwork.create(name: 'instagram', href: 'https://www.instagram.com/', src: 'https://img.icons8.com/bubbles/50/000000/instagram-new.png', status: 0)

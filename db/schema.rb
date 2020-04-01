@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_124806) do
+ActiveRecord::Schema.define(version: 2020_04_01_142017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 2020_03_30_124806) do
     t.index ["recipe_id"], name: "index_services_on_recipe_id"
   end
 
+  create_table "social_networks", force: :cascade do |t|
+    t.string "name"
+    t.string "href"
+    t.string "src"
+    t.integer "status"
+    t.bigint "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_social_networks_on_recipe_id"
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.string "text"
     t.boolean "status"
@@ -75,5 +86,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_124806) do
   add_foreign_key "products", "recipes"
   add_foreign_key "promotions", "recipes"
   add_foreign_key "services", "recipes"
+  add_foreign_key "social_networks", "recipes"
   add_foreign_key "testimonials", "recipes"
 end
