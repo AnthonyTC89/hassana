@@ -8,3 +8,5 @@
 User.create(username: 'admin', email: 'ptonyptc@gmail.com', password: 'admin', password_confirmation: 'admin')
 SocialNetwork.create(name: 'facebook', href: 'https://www.facebook.com/hassanamasajessalud/', src: 'https://img.icons8.com/bubbles/50/000000/facebook-new.png', status: 1)
 SocialNetwork.create(name: 'instagram', href: 'https://www.instagram.com/', src: 'https://img.icons8.com/bubbles/50/000000/instagram-new.png', status: 0)
+SocialNetwork.create(name: 'twitter', href: 'https://twitter.com/', src: 'https://img.icons8.com/bubbles/50/000000/twitter.png', status: 0)
+SocialNetwork.create(name: 'youtube', href: 'https://www.youtube.com/', src: 'https://img.icons8.com/bubbles/50/000000/youtube-squared.png', status: 0)

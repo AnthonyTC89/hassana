@@ -33,13 +33,11 @@ class Navbar extends React.Component {
     const { logo } = this.state;
     const { changeComponent } = this.props;
     const buttons = [
-      { name: 'Slogan', text: 'Home' },
+      { name: 'Information', text: 'Informacion' },
       { name: 'Promotions', text: 'Promociones' },
-      { name: 'AboutUs', text: 'Nosotros' },
       { name: 'Services', text: 'Servicios' },
       { name: 'Products', text: 'Productos' },
       { name: 'Testimonials', text: 'Testimonios' },
-      { name: 'Contact', text: 'Contacto' },
       { name: 'Images', text: 'Imagenes' },
     ];
     return (

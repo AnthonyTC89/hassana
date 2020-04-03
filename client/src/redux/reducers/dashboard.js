@@ -1,24 +1,20 @@
-import AboutUs from '../../Dashboard/AboutUs';
+import Information from '../../Dashboard/Information';
 import Products from '../../Dashboard/Products';
 import Promotions from '../../Dashboard/Promotions';
 import Services from '../../Dashboard/Services';
-import Slogan from '../../Dashboard/Slogan';
 import Testimonials from '../../Dashboard/Testimonials';
-import Contact from '../../Dashboard/Contact';
 import Images from '../../Dashboard/Images';
 
 const defaultDashboard = {
-  Component: Slogan,
+  Component: Information,
 };
 
 const collection = {
-  Slogan,
-  AboutUs,
+  Information,
   Products,
   Promotions,
   Services,
   Testimonials,
-  Contact,
   Images,
 };
 

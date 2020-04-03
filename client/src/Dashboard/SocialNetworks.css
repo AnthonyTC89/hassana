@@ -1,0 +1,12 @@
+.social-network {
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}

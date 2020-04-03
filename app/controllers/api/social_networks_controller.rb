@@ -1,6 +1,6 @@
 module Api
   class SocialNetworksController < ApplicationController
-    before_action :set_social_network, only: [:show, :update, :destroy]
+    before_action :set_social_network, only: [:update, :destroy]
 
     # GET /social_networks
     def index
@@ -9,10 +9,16 @@ module Api
       render json: @social_networks
     end
 
-    # GET /social_networks/1
-    def show
-      render json: @social_network
+    def full_index
+      @social_networks = SocialNetwork.all
+
+      render json: @social_networks
     end
+
+    # GET /social_networks/1
+    # def show
+    #   render json: @social_network
+    # end
 
     # POST /social_networks
     def create
