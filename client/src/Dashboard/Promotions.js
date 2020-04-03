@@ -41,6 +41,7 @@ class Promotions extends React.Component {
   async getInfo() {
     this.setState({
       loading: true,
+      message: '',
     });
     try {
       const promotions = await axios.get('/api/full_promotions');
@@ -52,6 +53,7 @@ class Promotions extends React.Component {
     } catch (err) {
       this.setState({
         loading: false,
+        message: 'Error en el Servidor',
       });
     }
   }

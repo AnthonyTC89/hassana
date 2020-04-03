@@ -42,6 +42,7 @@ class Products extends React.Component {
   async getInfo() {
     this.setState({
       loading: true,
+      message: '',
     });
     try {
       const res = await axios.get('/api/full_products');
@@ -53,6 +54,7 @@ class Products extends React.Component {
     } catch (err) {
       this.setState({
         loading: false,
+        message: 'Error en el Servidor',
       });
     }
   }

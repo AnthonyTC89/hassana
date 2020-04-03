@@ -2,6 +2,7 @@ const defaultSession = {
   user: {
     id: '',
     username: '',
+    status: 2,
   },
   isLoggedIn: true,
 };

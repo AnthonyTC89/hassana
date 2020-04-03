@@ -1,6 +1,8 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './SocialNetworks.css';
@@ -34,6 +36,7 @@ class SocialNetworks extends React.Component {
   async getInfo() {
     this.setState({
       loading: true,
+      message: '',
     });
     try {
       const res = await axios.get('/api/social_networks');
@@ -44,6 +47,7 @@ class SocialNetworks extends React.Component {
     } catch (err) {
       this.setState({
         loading: false,
+        message: 'Error en el Servidor',
       });
     }
   }
@@ -139,6 +143,7 @@ class SocialNetworks extends React.Component {
   render() {
     const { socialNetworks, loading, formVisible,
       name, href, src, status, message } = this.state;
+    const { session } = this.props;
     return (
       <section className="container">
         <h2>Redes Sociales</h2>
@@ -167,14 +172,15 @@ class SocialNetworks extends React.Component {
                   value={href}
                   required
                 />
-                <input
-                  className="form-control"
-                  onChange={this.handleChange}
-                  placeholder="https://icons8.com/"
-                  name="src"
-                  value={src}
-                  disabled
-                />
+                {session.user.status === 1 ? (
+                  <input
+                    className="form-control"
+                    onChange={this.handleChange}
+                    placeholder="https://icons8.com/"
+                    name="src"
+                    value={src}
+                  />
+                ) : null}
                 <div>
                   <input
                     id="chk-status"
@@ -185,17 +191,21 @@ class SocialNetworks extends React.Component {
                   />
                   <label className="form-check-label" htmlFor="chk-status">Activo</label>
                 </div>
-                <button type="submit" className="btn btn-success">Guardar</button>
-                <button className="btn btn-danger" type="button" onClick={() => this.closeForm()}>
-                  Cancelar
-                </button>
+                <div>
+                  <button type="submit" className="btn btn-success">
+                    Guardar
+                  </button>
+                  <button className="btn btn-danger" type="button" onClick={() => this.closeForm()}>
+                    Cerrar
+                  </button>
+                </div>
               </form>
             </div>
           )
           : (
-            <div key={uuidv4()} className="row social-network">
+            <div className="row social-network">
               {socialNetworks.map((item) => (
-                <div className="col-6 col-md-3 icon-text">
+                <div key={uuidv4()} className="col-6 col-md-3 icon-text">
                   <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
                   <a href={item.href} target="_blank" rel="noopener noreferrer">{item.name}</a>
                   <button
@@ -214,4 +224,14 @@ class SocialNetworks extends React.Component {
   }
 }
 
-export default SocialNetworks;
+SocialNetworks.propTypes = {
+  session: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  session: state.session,
+});
+
+const SocialNetworksWrapper = connect(mapStateToProps, null)(SocialNetworks);
+
+export default SocialNetworksWrapper;
