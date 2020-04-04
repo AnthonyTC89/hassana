@@ -23,7 +23,6 @@ class Slogan extends React.Component {
     this.getSocialNetworks();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async getSocialNetworks() {
     this.setState({
       loading: true,

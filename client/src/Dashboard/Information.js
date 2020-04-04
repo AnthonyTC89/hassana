@@ -1,7 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
 import SocialNetworks from './SocialNetworks';
-import Information from '../PageInfo.json';
+import Info from '../PageInfo.json';
 import iconLoading from '../Images/pre-loader.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Information.css';
@@ -11,7 +11,8 @@ class Slogan extends React.Component {
     super(props);
     this.state = {
       loading: false,
-      // information: {},
+      message: '',
+      info: Info,
     };
   }
 
@@ -22,31 +23,66 @@ class Slogan extends React.Component {
   async getInfo() {
     this.setState({
       loading: false,
+      message: '',
     });
     // try {
-    //   const res = await axios.get('/api/full_products');
+    //   const res = await axios.get('/api/information');
     //   this.setState({
-    //     products: res.data,
+    //     info: res.data,
     //     loading: false,
-    //     formVisible: res.data.length === 0,
     //   });
     // } catch (err) {
     //   this.setState({
     //     loading: false,
+    //     message: 'error',
     //   });
     // }
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      loading: true,
+    });
+    console.log('Submit');
+  }
+
   render() {
-    const { loading } = this.state;
+    const { info, loading, message } = this.state;
     return (
-      <section className="container">
-        <h2>{Information.headerTitle}</h2>
-        {loading
-          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : null}
+      <>
+        <form className="container" onSubmit={this.handleSubmit}>
+          <h2>{info.headerTitle}</h2>
+          <small>{message}</small>
+          {loading
+            ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            : null}
+          <div className="row">
+            <label htmlFor="headerTitle">Titulo Principal</label>
+            <input
+              id="headerTitle"
+              className="form-control"
+              onChange={this.handleChange}
+              placeholder="Texto aqui"
+              name="headerTitle"
+              value={info.headerTitle}
+            />
+            <label htmlFor="headerText">Slogan</label>
+            <input
+              id="headerText"
+              className="form-control"
+              onChange={this.handleChange}
+              placeholder="Texto aqui"
+              name="headerText"
+              value={info.headerText}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Guardar Datos
+          </button>
+        </form>
         <SocialNetworks />
-      </section>
+      </>
     );
   }
 }
