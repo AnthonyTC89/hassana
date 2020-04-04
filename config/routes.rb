@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :abouts, only: [:index, :update]
     get "/full_abouts", to: "abouts#full_index"
 
+    resources :social_networks, only: [:index, :create, :update, :destroy]
+    get "/full_social_networks", to: "social_networks#full_index"
+
     resources :products, only: [:index, :create, :update, :destroy]
     get "/full_products", to: "products#full_index"
 

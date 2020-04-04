@@ -33,7 +33,7 @@ class Navbar extends React.Component {
     const { logo } = this.state;
     const { changeComponent } = this.props;
     const buttons = [
-      { name: 'Information', text: 'Informacion' },
+      { name: 'Information', text: 'Hassana' },
       { name: 'Promotions', text: 'Promociones' },
       { name: 'Services', text: 'Servicios' },
       { name: 'Products', text: 'Productos' },
