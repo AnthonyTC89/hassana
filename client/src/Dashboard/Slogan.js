@@ -37,7 +37,6 @@ class Slogan extends React.Component {
     });
     try {
       const res = await axios.get('/api/full_headers');
-      console.log(res.data);
       const { id, title, text, recipe_id, location, key } = res.data[0];
       this.setState({
         id,
