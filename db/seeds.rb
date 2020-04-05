@@ -12,3 +12,4 @@ SocialNetwork.create(name: 'twitter', href: 'https://twitter.com/', src: 'https:
 SocialNetwork.create(name: 'youtube', href: 'https://www.youtube.com/', src: 'https://img.icons8.com/bubbles/50/000000/youtube-squared.png', status: 0)
 recipe = Recipe.create(bucket: 'hassana', key: 'hassana.jpeg', location: 'https://hassana.s3.amazonaws.com/hassana.jpeg')
 Header.create(title: 'Hassana Masaje y Salud', text: 'Una manera inteligente de cuidarte', status: 1, recipe: recipe)
+About.create(title: 'Acerca de Hassana', text: 'Acerca de Hassana', status: 1, recipe: recipe)

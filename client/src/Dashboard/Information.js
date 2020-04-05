@@ -1,6 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import Slogan from './Slogan';
+import AboutUs from './AboutUs';
 import SocialNetworks from './SocialNetworks';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Information.css';
@@ -14,6 +15,7 @@ class Information extends React.Component {
     this.changeComponent = this.changeComponent.bind(this);
     this.components = {
       Slogan,
+      AboutUs,
       SocialNetworks,
     };
   }
@@ -28,6 +30,7 @@ class Information extends React.Component {
     const { Component } = this.state;
     const items = [
       { name: 'Slogan', text: 'Slogan' },
+      { name: 'AboutUs', text: 'Acerca de' },
       { name: 'SocialNetworks', text: 'Redes Sociales' },
     ];
     return (
