@@ -1,7 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
-import iconLoading from '../Images/pre-loader.gif';
+import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Services.css';
 
@@ -42,8 +42,28 @@ class Services extends React.Component {
         <h2>Servicios</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : null}
-        {services.map((item) => (
+          : services.map((item) => (
+            <article key={uuidv4()} className="row service">
+              <picture className="col-12 col-sm-6">
+                <img className="service-img" src={item.location} alt="hassana-service" />
+              </picture>
+              <div className="col-12 col-sm-6">
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
+                {item.benefits === '' ? null
+                  : (
+                    <ul className="benefits-list">
+                      {item.benefits.split('. ').map((b) => (
+                        <li key={uuidv4()} className="list-item">
+                          <p>{b}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
+            </article>
+          ))}
+        {/* {services.map((item) => (
           <article key={uuidv4()} className="row service">
             <picture className="col-12 col-sm-6">
               <img className="service-img" src={item.location} alt="hassana-service" />
@@ -63,7 +83,7 @@ class Services extends React.Component {
                 )}
             </div>
           </article>
-        ))}
+        ))} */}
       </section>
     );
   }

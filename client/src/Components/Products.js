@@ -1,7 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
-import iconLoading from '../Images/pre-loader.gif';
+import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Products.css';
 
@@ -43,26 +43,27 @@ class Products extends React.Component {
         <h2>Productos</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : null}
-        <div className="row">
-          {products.map((item) => (
-            <article key={uuidv4()} className="col product">
-              <img className="product-img" src={item.location} alt={item.key} />
-              <h4>{item.title}</h4>
-              <p>{item.text}</p>
-              {item.benefits === '' ? null
-                : (
-                  <ul className="benefits-list">
-                    {item.benefits.split('. ').map((b) => (
-                      <li key={uuidv4()} className="list-item">
-                        <p>{b}</p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-            </article>
-          ))}
-        </div>
+          : (
+            <div className="row">
+              {products.map((item) => (
+                <article key={uuidv4()} className="col product">
+                  <img className="product-img" src={item.location} alt={item.key} />
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                  {item.benefits === '' ? null
+                    : (
+                      <ul className="benefits-list">
+                        {item.benefits.split('. ').map((b) => (
+                          <li key={uuidv4()} className="list-item">
+                            <p>{b}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                </article>
+              ))}
+            </div>
+          )}
       </section>
     );
   }

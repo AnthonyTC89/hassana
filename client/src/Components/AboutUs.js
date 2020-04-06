@@ -52,7 +52,11 @@ class AboutUs extends React.Component {
         <h2>{title}</h2>
         <p>{message}</p>
         {loading
-          ? <img src={iconLoading} alt="icon-loading" />
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          )
           : (
             <div className="row">
               <article className="col-12 col-sm-6 about-text">

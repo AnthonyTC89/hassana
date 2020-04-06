@@ -2,20 +2,21 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
-// import Info from '../PageInfo.json';
-import iconLoading from '../Images/pre-loader.gif';
+import Info from '../PageInfo.json';
+import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Slogan.css';
 
 class Slogan extends React.Component {
   constructor(props) {
     super(props);
+    const { headerTitle, headerText } = Info;
     this.state = {
       socialNetworks: [],
       loading: false,
       message: '',
-      title: '',
-      text: '',
+      title: headerTitle,
+      text: headerText,
       recipe: { location: 'https://picsum.photos/800', key: 'default' },
     };
   }
@@ -37,7 +38,7 @@ class Slogan extends React.Component {
         title,
         text,
         recipe: { recipe_id, location, key },
-        loading: false,
+        loading: true,
       });
     } catch (err) {
       this.setState({
@@ -67,33 +68,37 @@ class Slogan extends React.Component {
   }
 
   render() {
-    const { title, text, recipe,
-      socialNetworks, loading, message } = this.state;
+    const { title, text, recipe, socialNetworks, loading, message } = this.state;
     return (
       <section className="container-fluid slogan-section" id="home">
         {loading
-          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : null}
-        <div className="row">
-          <picture className="col-12 col-sm-6">
-            <img className="slogan-image" src={recipe.location} alt={recipe.key} />
-          </picture>
-          <div className="col-12 col-sm-6 slogan-info">
-            <h1>{title}</h1>
-            <h3>{text}</h3>
-            <div className="social-list">
-              <small>{message}</small>
-              {socialNetworks.map((item) => {
-                if (item.status === 0) { return null; }
-                return (
-                  <a key={uuidv4()} className="social-link" href={item.href}>
-                    <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
-                  </a>
-                );
-              })}
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          )
+          : (
+            <div className="row">
+              <picture className="col-12 col-sm-6">
+                <img className="slogan-image" src={recipe.location} alt={recipe.key} />
+              </picture>
+              <div className="col-12 col-sm-6 slogan-info">
+                <h1>{title}</h1>
+                <h3>{text}</h3>
+                <div className="social-list">
+                  <small>{message}</small>
+                  {socialNetworks.map((item) => {
+                    if (item.status === 0) { return null; }
+                    return (
+                      <a key={uuidv4()} className="social-link" href={item.href}>
+                        <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
       </section>
     );
   }
