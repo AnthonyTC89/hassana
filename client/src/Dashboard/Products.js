@@ -178,7 +178,7 @@ class Products extends React.Component {
     const { recipes } = this.props;
     const header = `Productos (${products.length})`;
     return (
-      <section className="container">
+      <div className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
         <h2>{header}</h2>
         <button
@@ -286,7 +286,7 @@ class Products extends React.Component {
               </div>
             </article>
           ))}
-      </section>
+      </div>
     );
   }
 }

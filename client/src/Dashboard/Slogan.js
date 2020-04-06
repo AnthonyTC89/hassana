@@ -103,7 +103,7 @@ class Slogan extends React.Component {
     const { recipes } = this.props;
     const headerForm = 'Titulo Principal';
     return (
-      <section className="container">
+      <div className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
         <h2>{headerForm}</h2>
         <p>{message}</p>
@@ -144,7 +144,7 @@ class Slogan extends React.Component {
             </button>
           </form>
         </div>
-      </section>
+      </div>
     );
   }
 }

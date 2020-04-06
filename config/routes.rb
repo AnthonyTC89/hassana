@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   post "/login", to: "users#login"
   namespace :api do
+    resources :contacts, only: [:index, :update]
+    get "/full_contacts", to: "contacts#full_index"
+
     resources :headers, only: [:index, :update]
     get "/full_headers", to: "headers#full_index"
 

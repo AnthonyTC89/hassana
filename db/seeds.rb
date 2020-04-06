@@ -13,3 +13,4 @@ SocialNetwork.create(name: 'youtube', href: 'https://www.youtube.com/', src: 'ht
 recipe = Recipe.create(bucket: 'hassana', key: 'hassana.jpeg', location: 'https://hassana.s3.amazonaws.com/hassana.jpeg')
 Header.create(title: 'Hassana Masaje y Salud', text: 'Una manera inteligente de cuidarte', status: 1, recipe: recipe)
 About.create(title: 'Acerca de Hassana', text: 'Acerca de Hassana', status: 1, recipe: recipe)
+Contact.create(title: 'Contacto', email: 'hassana-salud@dominio.com', mobile: '987654321', address: 'direcion hassana', zoom: 15, lat: -16.4360, lng: -71.52605, status: 1, recipe: recipe)

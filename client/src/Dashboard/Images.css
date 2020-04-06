@@ -1,3 +1,14 @@
 .card {
   justify-content: space-between;
 }
+
+.input-file-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  margin: 1rem 0;
+}

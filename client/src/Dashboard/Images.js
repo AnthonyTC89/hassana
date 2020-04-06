@@ -117,21 +117,23 @@ class Images extends React.Component {
     const { recipes } = this.props;
     const header = `Imagenes (${recipes.length})`;
     return (
-      <section className="container">
+      <div className="container">
         <h2>{header}</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
           : null}
         <form onSubmit={this.handleUploadS3}>
-          <input type="file" accept="image/*" multiple={false} onChange={this.handleChangeFile} />
-          <button type="submit">Guardar</button>
+          <div className="form-group input-file-group">
+            <input type="file" accept="image/*" multiple={false} onChange={this.handleChangeFile} />
+            <button className="btn btn-success" type="submit">Guardar</button>
+          </div>
           <p>{msg}</p>
         </form>
         <div className="row">
           {recipes.map((img) => (
             <div key={uuidv4()} className="card border-success col-6 col-sm-4 col-md-3 col-lg-2">
               <h6>{img.key}</h6>
-              <img className="card-img-top card-img" src={img.location} alt="hassana-file" />
+              <img className="card-img-top card-img image" src={img.location} alt={img.key} />
               <button
                 className="btn btn-danger"
                 type="button"
@@ -142,7 +144,7 @@ class Images extends React.Component {
             </div>
           ))}
         </div>
-      </section>
+      </div>
     );
   }
 }

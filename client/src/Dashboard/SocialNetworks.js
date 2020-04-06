@@ -145,7 +145,7 @@ class SocialNetworks extends React.Component {
       name, href, src, status, message } = this.state;
     const { session } = this.props;
     return (
-      <section className="container">
+      <div className="container">
         <h2>Redes Sociales</h2>
         <p>{message}</p>
         {loading
@@ -219,7 +219,7 @@ class SocialNetworks extends React.Component {
               ))}
             </div>
           )}
-      </section>
+      </div>
     );
   }
 }

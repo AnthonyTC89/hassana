@@ -1,0 +1,8 @@
+.input-group {
+  display: flex;
+  align-items: baseline;
+}
+
+.sub-title {
+  margin: 1rem;
+}

@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
 import updateRecipes from '../redux/actions/updateRecipes';
-import { headerTitle } from '../PageInfo.json';
 import './Dashboard.css';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: headerTitle,
       message: '',
     };
   }
@@ -44,17 +42,14 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { title, message } = this.state;
+    const { message } = this.state;
     const { dashboard } = this.props;
     const { Component } = dashboard;
     return (
       <>
         <header><Navbar /></header>
         <main className="dashboard-section">
-          <div>
-            <h1>{title}</h1>
-            <p>{message}</p>
-          </div>
+          <p>{message}</p>
           <Component />
         </main>
       </>

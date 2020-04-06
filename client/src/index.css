@@ -30,6 +30,11 @@ section {
 footer, nav {
   border: 2px solid red;
 }
+
+label {
+  margin: 1rem;
+}
+
 .row {
   padding: 1rem;
 }
@@ -54,6 +59,7 @@ footer, nav {
 
 .image-selected {
   width: 10rem;
+  margin: 1rem;
 }
 
 .input-form {

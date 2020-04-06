@@ -173,7 +173,7 @@ class Testimonials extends React.Component {
     const { recipes } = this.props;
     const header = `Testimonios (${testimonials.length})`;
     return (
-      <section className="container">
+      <div className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
         <h2>{header}</h2>
         <button
@@ -242,7 +242,7 @@ class Testimonials extends React.Component {
               </div>
             </article>
           ))}
-      </section>
+      </div>
     );
   }
 }

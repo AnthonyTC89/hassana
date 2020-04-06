@@ -103,7 +103,7 @@ class AboutUs extends React.Component {
     const { recipes } = this.props;
     const header = 'Acerca de Hassana';
     return (
-      <section className="container">
+      <div className="container">
         <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
         <h2>{header}</h2>
         <p>{message}</p>
@@ -144,7 +144,7 @@ class AboutUs extends React.Component {
             </button>
           </form>
         </div>
-      </section>
+      </div>
     );
   }
 }

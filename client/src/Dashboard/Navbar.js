@@ -55,7 +55,7 @@ class Navbar extends React.Component {
             {buttons.map((btn) => (
               <button
                 key={uuidv4()}
-                className="btn btn-outline-success"
+                className="btn btn-outline-primary"
                 type="button"
                 onClick={() => changeComponent(btn.name)}
               >
