@@ -6,7 +6,7 @@ import { uploadFile, deleteFile } from 'react-s3';
 import { connect } from 'react-redux';
 import updateRecipes from '../redux/actions/updateRecipes';
 import { messages } from '../PageInfo.json';
-import iconLoading from '../Images/pre-loader.gif';
+import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Images.css';
 
