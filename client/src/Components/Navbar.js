@@ -1,5 +1,6 @@
 import React from 'react';
-import { navbarTitle, navbarLogo } from '../PageInfo.json';
+import { navbarTitle } from '../PageInfo.json';
+import logoDefault from '../Images/logo.jpeg';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
 import './Navbar.css';
@@ -8,7 +9,6 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      logo: navbarLogo,
       text: navbarTitle,
     };
   }
@@ -24,12 +24,12 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { logo, text } = this.state;
+    const { text } = this.state;
     return (
       <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         <div className="navbar-elements">
           <a className="navbar-brand" href="#Profile">
-            <img className="navbar-logo" src={logo} alt="hassana-logo" />
+            <img className="navbar-logo" src={logoDefault} alt="hassana-logo" />
             <span>{text}</span>
           </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

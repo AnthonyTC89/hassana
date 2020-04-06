@@ -38,7 +38,7 @@ class Slogan extends React.Component {
         title,
         text,
         recipe: { recipe_id, location, key },
-        loading: true,
+        loading: false,
       });
     } catch (err) {
       this.setState({
