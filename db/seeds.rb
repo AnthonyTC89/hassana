@@ -10,7 +10,7 @@ SocialNetwork.create(name: 'facebook', href: 'https://www.facebook.com/hassanama
 SocialNetwork.create(name: 'instagram', href: 'https://www.instagram.com/', src: 'https://img.icons8.com/bubbles/50/000000/instagram-new.png', status: 0)
 SocialNetwork.create(name: 'twitter', href: 'https://twitter.com/', src: 'https://img.icons8.com/bubbles/50/000000/twitter.png', status: 0)
 SocialNetwork.create(name: 'youtube', href: 'https://www.youtube.com/', src: 'https://img.icons8.com/bubbles/50/000000/youtube-squared.png', status: 0)
-recipe = Recipe.create(bucket: 'hassana', key: 'hassana.jpeg', location: 'https://hassana.s3.amazonaws.com/hassana.jpeg')
+recipe = Recipe.create(bucket: 'hassana', key: 'logo.jpeg', location: 'https://hassana.s3.amazonaws.com/logo.jpeg')
 Header.create(title: 'Hassana Masaje y Salud', text: 'Una manera inteligente de cuidarte', status: 1, recipe: recipe)
 lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at ultricies ante, id suscipit sapien. Maecenas in imperdiet nisi. Pellentesque rhoncus nisi odio, ac blandit tellus bibendum elementum.'
 About.create(title: 'Acerca de Hassana', text: lorem, status: 1, recipe: recipe)

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import { connect } from 'react-redux';
-import { navbarLogo } from '../PageInfo.json';
+import logoDefault from '../Images/logo.jpeg';
 import logout from '../redux/actions/logout';
 import updateDashboard from '../redux/actions/updateDashboard';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,16 +12,7 @@ import './Navbar.css';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      logo: navbarLogo,
-    };
     this.logoutSession = this.logoutSession.bind(this);
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  async getInfo() {
-    // eslint-disable-next-line no-console
-    console.log('getInfo navbar');
   }
 
   logoutSession() {
@@ -30,7 +21,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { logo } = this.state;
     const { changeComponent } = this.props;
     const buttons = [
       { name: 'Information', text: 'Hassana' },
@@ -44,7 +34,7 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="navbar-elements">
           <a className="navbar-brand" href="#Profile">
-            <img className="navbar-logo" src={logo} alt="hassana-logo" />
+            <img className="navbar-logo" src={logoDefault} alt="hassana-logo" />
           </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
