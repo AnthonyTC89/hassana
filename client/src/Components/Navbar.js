@@ -1,5 +1,5 @@
 import React from 'react';
-import { navbarTitle } from '../PageInfo.json';
+import LoginModal from './LoginModal';
 import logoDefault from '../Images/logo.jpeg';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
@@ -9,24 +9,30 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: navbarTitle,
+      modalVisible: false,
+      text: 'hassana',
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  componentDidMount() {
-    this.getInfo();
+  openModal() {
+    this.setState({
+      modalVisible: true,
+    });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  async getInfo() {
-    // eslint-disable-next-line no-console
-    console.log('getInfo navbar');
+  closeModal() {
+    this.setState({
+      modalVisible: false,
+    });
   }
 
   render() {
-    const { text } = this.state;
+    const { text, modalVisible } = this.state;
     return (
       <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <LoginModal modalVisible={modalVisible} closeModal={this.closeModal} />
         <div className="navbar-elements">
           <a className="navbar-brand" href="#Profile">
             <img className="navbar-logo" src={logoDefault} alt="hassana-logo" />
@@ -47,6 +53,7 @@ class Navbar extends React.Component {
             <a className="nav-item nav-link" href="#contact">Contacto</a>
           </div>
         </div>
+        <button className="btn btn-outline-success" onClick={this.openModal} type="button">Login</button>
       </nav>
     );
   }

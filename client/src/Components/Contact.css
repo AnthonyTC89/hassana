@@ -3,8 +3,9 @@
 }
 
 .contact-map, .contact-text, .contact-picture {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 1rem;
+  min-height: 20rem;
 }
 
 .contact-text, .contact-picture {

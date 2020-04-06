@@ -20,13 +20,6 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate() {
-    const { session, history } = this.props;
-    if (session.isLoggedIn) {
-      history.push('/dashboard');
-    }
-  }
-
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
@@ -90,9 +83,9 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  session: PropTypes.object.isRequired,
+  // session: PropTypes.object.isRequired,
   addSession: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  // history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

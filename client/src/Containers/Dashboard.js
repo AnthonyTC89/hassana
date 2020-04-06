@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     const { session, history } = this.props;
     if (!session.isLoggedIn) {
-      history.push('/login');
+      history.push('/');
     }
     this.getRecipes();
   }

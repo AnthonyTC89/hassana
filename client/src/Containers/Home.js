@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import login from '../redux/actions/login';
 import Navbar from '../Components/Navbar';
 import Slogan from '../Components/Slogan';
 import Promotions from '../Components/Promotions';
@@ -9,20 +12,51 @@ import Testimonials from '../Components/Testimonials';
 import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
 
-const Home = () => (
-  <>
-    <header><Navbar /></header>
-    <main>
-      <Slogan />
-      <AboutUs />
-      <Services />
-      <Promotions />
-      <Products />
-      <Testimonials />
-      <Contact />
-    </main>
-    <Footer />
-  </>
-);
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-export default Home;
+  componentDidUpdate() {
+    const { session, history } = this.props;
+    if (session.isLoggedIn) {
+      history.push('/dashboard');
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <header><Navbar /></header>
+        <main>
+          <Slogan />
+          <AboutUs />
+          <Services />
+          <Promotions />
+          <Products />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+      </>
+    );
+  }
+}
+
+Home.propTypes = {
+  session: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  session: state.session,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addSession: (user) => dispatch(login(user)),
+});
+
+const HomeWrapper = connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export default HomeWrapper;

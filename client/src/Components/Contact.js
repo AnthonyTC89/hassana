@@ -58,7 +58,7 @@ class Contact extends React.Component {
   render() {
     const { title, recipe, email, mobile, address, map, loading, message } = this.state;
     const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_KEY_API_GOOGLEMAPS}`;
-    const containerElement = <div style={{ height: '20rem' }} />;
+    const containerElement = <div style={{ height: '100%' }} />;
     const mapElement = <div style={{ height: '100%' }} />;
     const loadingElement = <p>Loading</p>;
     return (
