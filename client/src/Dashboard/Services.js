@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import RecipesModal from './RecipesModal';
-import iconLoading from '../Images/pre-loader.gif';
+import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Services.css';
 
