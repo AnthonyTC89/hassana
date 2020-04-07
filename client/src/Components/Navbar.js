@@ -33,7 +33,7 @@ class Navbar extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         {modalVisible
-          ? <LoginModal modalVisible={modalVisible} closeModal={this.closeModal} /> 
+          ? <LoginModal modalVisible={modalVisible} closeModal={this.closeModal} />
           : null}
         <div className="navbar-elements">
           <a className="navbar-brand" href="#Profile">

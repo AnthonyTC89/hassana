@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import Info from '../PageInfo.json';
@@ -81,6 +80,7 @@ class Slogan extends React.Component {
           )
           : (
             <div className="row">
+              <p>{message}</p>
               <picture className="col-12 col-sm-6">
                 <img className="slogan-image" src={recipe.location} alt={recipe.key} />
               </picture>
