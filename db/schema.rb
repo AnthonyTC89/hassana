@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
     t.integer "zoom"
     t.decimal "lat"
     t.decimal "lng"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
   create_table "headers", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
     t.string "title"
     t.string "text"
     t.string "benefits"
-    t.string "status", default: "t"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
   create_table "promotions", force: :cascade do |t|
     t.string "title"
     t.string "text"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
     t.string "name"
     t.string "href"
     t.string "src"
-    t.integer "status"
+    t.boolean "status"
     t.bigint "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_180414) do
 
   create_table "testimonials", force: :cascade do |t|
     t.string "text"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

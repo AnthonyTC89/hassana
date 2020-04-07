@@ -15,17 +15,17 @@ class SocialNetworks extends React.Component {
       loading: false,
       formVisible: false,
       message: '',
-      id: null, // used in edit Products
+      id: null, // used in edit SocialNetworks
       name: '',
       href: '',
       src: '',
-      status: 1,
+      status: true,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showForm = this.showForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
     this.handleChangeCheckBox = this.handleChangeCheckBox.bind(this);
   }
 
@@ -80,13 +80,6 @@ class SocialNetworks extends React.Component {
         src,
         status,
       };
-      if (res.status === 201) { // Created
-        this.setState((prevState) => ({
-          message: 'Red Social creada exitosamente',
-          socialNetworks: [newSocialNetwork, ...prevState.socialNetworks],
-          formVisible: false,
-        }));
-      }
       if (res.status === 200) { // OK - Updated
         const auxSocialNetworks = socialNetworks.filter((i) => i.id !== id);
         this.setState({
@@ -98,26 +91,6 @@ class SocialNetworks extends React.Component {
     } catch (err) {
       this.setState({
         message: 'error',
-      });
-    }
-  }
-
-  async handleDelete(item) {
-    this.setState({
-      message: '',
-      loading: true,
-    });
-    try {
-      await axios.delete(`api/social_networks/${item.id}`);
-      this.setState((prevState) => ({
-        message: 'Red Social eliminada.',
-        socialNetworks: prevState.socialNetworks.filter((i) => i.id !== item.id),
-        loading: false,
-      }));
-    } catch (err) {
-      this.setState({
-        message: 'error',
-        loading: false,
       });
     }
   }

@@ -3,7 +3,7 @@ class CreatePromotions < ActiveRecord::Migration[6.0]
     create_table :promotions do |t|
       t.string :title
       t.string :text
-      t.boolean :status
+      t.boolean :status, default: true
       t.references :recipe, null: false, foreign_key: true
 
       t.timestamps

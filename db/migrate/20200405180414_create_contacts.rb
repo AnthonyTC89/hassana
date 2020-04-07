@@ -8,7 +8,7 @@ class CreateContacts < ActiveRecord::Migration[6.0]
       t.integer :zoom
       t.decimal :lat
       t.decimal :lng
-      t.boolean :status
+      t.boolean :status, default: true
       t.references :recipe, null: false, foreign_key: true
 
       t.timestamps

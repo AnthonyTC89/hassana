@@ -88,7 +88,7 @@ class Slogan extends React.Component {
                 <div className="social-list">
                   <small>{message}</small>
                   {socialNetworks.map((item) => {
-                    if (item.status === 0) { return null; }
+                    if (!item.status) { return null; }
                     return (
                       <a key={uuidv4()} className="social-link" href={item.href}>
                         <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />

@@ -4,7 +4,7 @@ class CreateSocialNetworks < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :href
       t.string :src
-      t.integer :status
+      t.boolean :status
       t.references :recipe, foreign_key: true
 
       t.timestamps

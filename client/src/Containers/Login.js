@@ -40,7 +40,7 @@ class Login extends React.Component {
         this.setState({
           btnLoading: false,
         });
-        const user = { id: res.data.id, username };
+        const user = { id: res.data.id, username, status: res.data.status };
         addSession(user);
       })
       .catch((err) => {

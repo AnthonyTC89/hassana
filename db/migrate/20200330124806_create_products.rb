@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :text
       t.string :benefits
-      t.string :status, default: true
+      t.boolean :status, default: true
       t.references :recipe, null: false, foreign_key: true
 
       t.timestamps
