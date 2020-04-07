@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import Info from '../PageInfo.json';
@@ -69,6 +70,7 @@ class Slogan extends React.Component {
 
   render() {
     const { title, text, recipe, socialNetworks, loading, message } = this.state;
+    const social = socialNetworks.filter((sn) => sn.status);
     return (
       <section className="container-fluid slogan-section" id="home">
         {loading
@@ -86,15 +88,11 @@ class Slogan extends React.Component {
                 <h1>{title}</h1>
                 <h3>{text}</h3>
                 <div className="social-list">
-                  <small>{message}</small>
-                  {socialNetworks.map((item) => {
-                    if (!item.status) { return null; }
-                    return (
-                      <a key={uuidv4()} className="social-link" href={item.href}>
-                        <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
-                      </a>
-                    );
-                  })}
+                  {social.map((item) => (
+                    <a key={uuidv4()} className="social-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                      <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
