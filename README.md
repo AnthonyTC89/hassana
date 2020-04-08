@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Hassana Massages Web Page</h1>
+  <h1 align="center">Hassana Massage & HealthCare Web Page</h1>
   <p align="center">
     Project Create with React and RailsAPI
     <br>
@@ -12,6 +12,8 @@
   </p>
 </p>
 
+![Screenshot](/screenshots/01.png)
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -22,17 +24,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a Web Page for a business in Arequipa, Peru. The owner need to show his services
-on Internet with some basic sections.
+This project is a Web Page for a business in Arequipa, Peru. The owner need to show his services, products, testimonials and a contact section with GoogleMaps.
 
 ### Built With
 * [HTML](https://www.w3.org/html/)
 * [CSS](https://www.w3.org/Style/CSS/)
 * [Bootstrap](https://getbootstrap.com/)
 * [JavaScript](https://www.javascript.com/)
-* [React](https://reactjs.org/)
+* [ReactJS](https://reactjs.org/)
+* [ReduxJS](https://redux.js.org/)
 * [Ruby](https://www.ruby-lang.org/en/)
 * [RailsAPI](https://rubyonrails.org/)
+* [GoogleMaps](https://developers.google.com/maps/documentation)
 
 ### Pre-Installation
   1. npm version 6.13.4 or more
