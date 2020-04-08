@@ -104,7 +104,15 @@ class Slogan extends React.Component {
     const headerForm = 'Titulo Principal';
     return (
       <div className="container">
-        <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
+        {modalVisible
+          ? (
+            <RecipesModal
+              recipes={recipes}
+              modalVisible={modalVisible}
+              closeModal={this.closeModal}
+            />
+          )
+          : null}
         <h2>{headerForm}</h2>
         <p>{message}</p>
         {loading

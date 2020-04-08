@@ -54,8 +54,8 @@ class Navbar extends React.Component {
             <a className="nav-item nav-link" href="#testimonials">Testimonios</a>
             <a className="nav-item nav-link" href="#contact">Contacto</a>
           </div>
+          <button className="btn btn-outline-success" onClick={this.openModal} type="button">Login</button>
         </div>
-        <button className="btn btn-outline-success" onClick={this.openModal} type="button">Login</button>
       </nav>
     );
   }

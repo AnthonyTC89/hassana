@@ -117,7 +117,15 @@ class Contact extends React.Component {
     const header = 'Seccion de contacto';
     return (
       <div className="container">
-        <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
+        {modalVisible
+          ? (
+            <RecipesModal
+              recipes={recipes}
+              modalVisible={modalVisible}
+              closeModal={this.closeModal}
+            />
+          )
+          : null}
         <h2>{header}</h2>
         <p>{message}</p>
         {loading

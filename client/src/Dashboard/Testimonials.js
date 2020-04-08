@@ -174,7 +174,15 @@ class Testimonials extends React.Component {
     const header = `Testimonios (${testimonials.length})`;
     return (
       <div className="container">
-        <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
+        {modalVisible
+          ? (
+            <RecipesModal
+              recipes={recipes}
+              modalVisible={modalVisible}
+              closeModal={this.closeModal}
+            />
+          )
+          : null}
         <h2>{header}</h2>
         <button
           className="btn btn-primary"
