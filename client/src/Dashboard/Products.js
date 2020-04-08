@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import RecipesModal from './RecipesModal';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './Products.css';
 
 class Products extends React.Component {
@@ -261,8 +261,8 @@ class Products extends React.Component {
               <picture className="col-12 col-sm-6 item-picture">
                 <img className="item-image" src={item.location} alt={item.key} />
               </picture>
-              <div className="col-12 col-sm-6">
-                <h4>{item.title}</h4>
+              <div className="col-12 col-sm-6 item-text">
+                <h3>{item.title}</h3>
                 <div>
                   <p className={item.status ? '' : 'text-line-through'}>{item.text}</p>
                   <h6>Beneficios</h6>

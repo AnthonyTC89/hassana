@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import RecipesModal from './RecipesModal';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './Promotions.css';
 
 class Promotions extends React.Component {
@@ -176,7 +176,15 @@ class Promotions extends React.Component {
     const header = `Promociones (${promotions.length})`;
     return (
       <div className="container">
-        <RecipesModal recipes={recipes} modalVisible={modalVisible} closeModal={this.closeModal} />
+        {modalVisible
+          ? (
+            <RecipesModal
+              recipes={recipes}
+              modalVisible={modalVisible}
+              closeModal={this.closeModal}
+            />
+          )
+          : null}
         <h2>{header}</h2>
         <button
           className="btn btn-primary"
@@ -250,8 +258,8 @@ class Promotions extends React.Component {
               <picture className="col-12 col-sm-6 item-picture">
                 <img className="item-image" src={item.location} alt={item.key} />
               </picture>
-              <div className="col-12 col-sm-6">
-                <p>{item.title}</p>
+              <div className="col-12 col-sm-6 item-text">
+                <h3>{item.title}</h3>
                 <p className={item.status ? '' : 'text-line-through'}>{item.text}</p>
               </div>
               <div className="col-12">

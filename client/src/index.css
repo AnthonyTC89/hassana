@@ -75,10 +75,20 @@ label {
 
 .item-picture {
   margin: 1rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-image {
   max-width: 100%;
+  max-height: 20rem;
 }
 
 .list-item {

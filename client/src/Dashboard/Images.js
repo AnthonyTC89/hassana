@@ -132,10 +132,10 @@ class Images extends React.Component {
         <div className="row">
           {recipes.map((img) => (
             <div key={uuidv4()} className="card border-success col-6 col-sm-4 col-md-3 col-lg-2">
-              <h6>{img.key}</h6>
+              <h6 className="mt-1">{img.key}</h6>
               <img className="card-img-top card-img image" src={img.location} alt={img.key} />
               <button
-                className="btn btn-danger"
+                className="btn btn-danger mb-1"
                 type="button"
                 onClick={() => this.handleDeleteFile(img)}
               >

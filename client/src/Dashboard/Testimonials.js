@@ -232,9 +232,9 @@ class Testimonials extends React.Component {
                 <button className="btn btn-success" type="button" onClick={() => this.showForm(t)}>Editar</button>
               </div>
               <picture className="col-12 col-sm-6 item-picture">
-                <img src={t.location} alt={t.key} />
+                <img className="item-image" src={t.location} alt={t.key} />
               </picture>
-              <div className="col-12 col-sm-6">
+              <div className="col-12 col-sm-6 item-text">
                 <p className={t.status ? '' : 'text-line-through'}>{t.text}</p>
               </div>
               <div className="col-12">
