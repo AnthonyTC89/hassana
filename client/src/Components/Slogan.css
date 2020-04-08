@@ -5,6 +5,7 @@ picture{
 .slogan-section {
   text-align: center;
   display: flex;
+  flex-direction: column;
 }
 
 .slogan-image {
