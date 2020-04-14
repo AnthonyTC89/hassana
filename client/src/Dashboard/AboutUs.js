@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import RecipesModal from './RecipesModal';
 import iconLoading from '../Images/loading.gif';
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import './Products.css';
+import './AboutUs.css';
 
 class AboutUs extends React.Component {
   constructor(props) {

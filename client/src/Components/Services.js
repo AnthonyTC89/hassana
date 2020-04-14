@@ -63,27 +63,6 @@ class Services extends React.Component {
               </div>
             </article>
           ))}
-        {/* {services.map((item) => (
-          <article key={uuidv4()} className="row service">
-            <picture className="col-12 col-sm-6">
-              <img className="service-img" src={item.location} alt="hassana-service" />
-            </picture>
-            <div className="col-12 col-sm-6">
-              <h4>{item.title}</h4>
-              <p>{item.text}</p>
-              {item.benefits === '' ? null
-                : (
-                  <ul className="benefits-list">
-                    {item.benefits.split('. ').map((b) => (
-                      <li key={uuidv4()} className="list-item">
-                        <p>{b}</p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-            </div>
-          </article>
-        ))} */}
       </section>
     );
   }
