@@ -37,28 +37,33 @@ class Navbar extends React.Component {
           ? <LoginModal modalVisible={modalVisible} closeModal={this.closeModal} />
           : null}
         <div className="navbar-elements">
-          <a className="navbar-brand" href="#Profile">
+          <div className="d-flex">
             <img className="navbar-logo" src={logoDefault} alt="hassana-logo" />
-            <span>{text}</span>
-          </a>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <a className="nav-item nav-link" href="#aboutUs">Nosotros</a>
-              <a className="nav-item nav-link" href="#services">Servicios</a>
-              <a className="nav-item nav-link" href="#products">Productos</a>
-              <a className="nav-item nav-link" href="#testimonials">Testimonios</a>
-              <a className="nav-item nav-link" href="#contact">Contacto</a>
+            <div>
+              <a className="navbar-brand" href="#home">{text}</a>
             </div>
           </div>
           <div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon" />
             </button>
-            <button className="btn" onClick={this.openModal} type="button">
+            <button className="btn btn-user d-md-none" onClick={this.openModal} type="button">
               <img className="btn-image" src={userIcon} alt="user-icon" />
             </button>
           </div>
         </div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <a className="nav-item nav-link" href="#aboutUs">Nosotros</a>
+            <a className="nav-item nav-link" href="#services">Servicios</a>
+            <a className="nav-item nav-link" href="#products">Productos</a>
+            <a className="nav-item nav-link" href="#testimonials">Testimonios</a>
+            <a className="nav-item nav-link" href="#contact">Contacto</a>
+          </div>
+        </div>
+        <button className="btn btn-user d-none d-md-block" onClick={this.openModal} type="button">
+          <img className="btn-image" src={userIcon} alt="user-icon" />
+        </button>
       </nav>
     );
   }
