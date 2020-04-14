@@ -2,6 +2,11 @@
   display: contents;
 }
 
+.navbar-brand {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .navbar-logo {
   width: 2rem;
   margin: 0 0.5rem;
@@ -13,14 +18,14 @@
 
 .navbar-collapse {
   justify-content: flex-end;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .bg-hassana {
   background: #daf3cf;  
   background: -webkit-linear-gradient(to right, #f1f5ed, #d1ebc5); 
   background: linear-gradient(to right, #f1f5ed, #d1ebc5);
-  text-transform: uppercase;
-  font-weight: 600;
 }
 
 .btn-image {
@@ -28,5 +33,5 @@
 }
 
 .btn-user {
-  padding: 0 0.5rem;
+  padding-left: 0.5rem;
 }
