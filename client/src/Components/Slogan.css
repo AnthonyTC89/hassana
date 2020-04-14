@@ -8,32 +8,20 @@ picture{
   flex-direction: column;
 }
 
-.slogan-image {
-  width: 70%;
-  margin: auto;
+.picture-slogan {
+  margin-top: 3.5rem;
+  position: relative;
 }
 
-.slogan-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.image-slogan {
+  width: 100%;
+  max-height: 50rem;
+  opacity: 0.9;
 }
 
-.social-list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.picture-loading {
+  max-width: 20rem;
+  margin: 5rem auto;
 }
-
-.social-link {
-  display: flex;
-  align-items: center;
-}
-
-.social-icon {
-  width: 3rem;
-}
-
 
 

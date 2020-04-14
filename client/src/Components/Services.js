@@ -38,7 +38,7 @@ class Services extends React.Component {
     const { services, loading } = this.state;
     if (services.length === 0) { return null; }
     return (
-      <section className="container services-section" id="services">
+      <section className="container services-section bg-hassana" id="services">
         <h2>Servicios</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />

@@ -16,21 +16,17 @@ code {
     monospace;
 }
 
-section {
+/* section {
   margin: 4rem auto;
-}
+} */
 
 label {
   margin: 0 1rem;
 }
 
-.row {
+/* .row {
   padding: 1rem;
-}
-
-.icon-loading {
-  width: 10rem;
-}
+} */
 
 .img-button {
   width: 5rem;
@@ -86,4 +82,8 @@ label {
 
 .container, .container-fluid {
   background: white;
+}
+
+.icon-loading {
+  width: 10rem;
 }

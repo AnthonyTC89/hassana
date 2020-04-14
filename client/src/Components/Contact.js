@@ -62,7 +62,7 @@ class Contact extends React.Component {
     const mapElement = <div style={{ height: '100%' }} />;
     const loadingElement = <p>Loading</p>;
     return (
-      <section className="container-fluid contact-section" id="contact">
+      <section className="container-fluid contact-section bg-hassana" id="contact">
         <p>{message}</p>
         {loading
           ? (

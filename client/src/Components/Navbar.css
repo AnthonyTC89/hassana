@@ -5,6 +5,7 @@
 .navbar-brand {
   text-transform: uppercase;
   font-weight: 600;
+  color: #839783 !important;
 }
 
 .navbar-logo {

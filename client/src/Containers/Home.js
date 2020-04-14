@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import login from '../redux/actions/login';
 import Navbar from '../Components/Navbar';
 import Slogan from '../Components/Slogan';
-// import Promotions from '../Components/Promotions';
-// import AboutUs from '../Components/AboutUs';
-// import Services from '../Components/Services';
-// import Products from '../Components/Products';
-// import Testimonials from '../Components/Testimonials';
-// import Contact from '../Components/Contact';
+import AboutUs from '../Components/AboutUs';
+import Promotions from '../Components/Promotions';
+import Services from '../Components/Services';
+import Products from '../Components/Products';
+import Testimonials from '../Components/Testimonials';
+import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
 
 class Home extends React.Component {
@@ -31,12 +31,12 @@ class Home extends React.Component {
         <header><Navbar /></header>
         <main>
           <Slogan />
-          {/* <AboutUs />
+          <AboutUs />
           <Services />
           <Promotions />
           <Products />
           <Testimonials />
-          <Contact /> */}
+          <Contact />
         </main>
         <Footer />
       </>

@@ -39,7 +39,7 @@ class Products extends React.Component {
     const { products, loading } = this.state;
     if (products.length === 0) { return null; }
     return (
-      <section className="container-fluid products-section" id="products">
+      <section className="container-fluid products-section bg-hassana" id="products">
         <h2>Productos</h2>
         {loading
           ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
