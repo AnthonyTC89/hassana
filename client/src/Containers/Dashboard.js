@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Dashboard/Navbar';
 import updateRecipes from '../redux/actions/updateRecipes';
-import './Dashboard.css';
+import 'bootstrap/dist/css/bootstrap-grid.css';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -33,10 +33,13 @@ class Dashboard extends React.Component {
     const { changeRecipes } = this.props;
     try {
       const recipes = await axios.get('/api/recipes');
+      this.setState({
+        message: '',
+      });
       changeRecipes(recipes.data);
     } catch (error) {
       this.setState({
-        message: 'error',
+        message: 'Error en el Servidor',
       });
     }
   }
@@ -48,9 +51,8 @@ class Dashboard extends React.Component {
     return (
       <>
         <header><Navbar /></header>
-        <main className="dashboard-section">
-          <p>{message}</p>
-          <Component />
+        <main className="text-center">
+          <Component message={message} />
         </main>
       </>
     );
