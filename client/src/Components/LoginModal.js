@@ -57,32 +57,30 @@ class LoginModal extends React.Component {
     const { modalVisible, closeModal } = this.props;
     return (
       <Modal visible={modalVisible} width="200" height="150" onClickAway={() => closeModal()}>
-        <div className="container-form">
-          <form className="login-form" onSubmit={!btnLoading ? this.handleSubmit : null}>
-            <input
-              className="form-control login-input"
-              onChange={this.handleChange}
-              type="text"
-              placeholder="usuario"
-              value={username}
-              name="username"
-              required
-            />
-            <input
-              className="form-control login-input"
-              onChange={this.handleChange}
-              type="password"
-              placeholder="contraseña"
-              value={password}
-              name="password"
-              required
-            />
-            <button className="btn btn-success login-btn" type="submit">
-              {btnLoading ? 'Espere...' : 'Ingresar'}
-            </button>
-            <small className="login-message">{errMessage}</small>
-          </form>
-        </div>
+        <form className="login-form" onSubmit={!btnLoading ? this.handleSubmit : null}>
+          <input
+            className="form-control login-input"
+            onChange={this.handleChange}
+            type="text"
+            placeholder="usuario"
+            value={username}
+            name="username"
+            required
+          />
+          <input
+            className="form-control login-input"
+            onChange={this.handleChange}
+            type="password"
+            placeholder="contraseña"
+            value={password}
+            name="password"
+            required
+          />
+          <button className="btn btn-success login-btn" type="submit">
+            {btnLoading ? 'Espere...' : 'Ingresar'}
+          </button>
+          <small className="login-message">{errMessage}</small>
+        </form>
       </Modal>
     );
   }

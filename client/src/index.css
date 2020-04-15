@@ -30,6 +30,11 @@ h2 {
   font-family: 'Kaushan Script', cursive;
 }
 
+h4 {
+  color: darkgreen;
+  font-family: 'Kaushan Script'
+}
+
 p {
   font-family: 'Comic Neue', cursive;
   font-size: larger;
@@ -84,7 +89,7 @@ p {
 }
 
 .list-item {
-  text-align: left;
+  text-align: center;
 }
 
 .container, .container-fluid {

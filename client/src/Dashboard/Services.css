@@ -1,18 +1,3 @@
-.services-section {
-  text-align: center;
-}
-
-.service {
-  padding: 1rem;
-  margin: 1rem;
-}
-
 .service-img {
-  width: 60%;
   margin: auto;
-}
-
-.benefits-list {
-  list-style: none;
-  padding: 0;
 }
