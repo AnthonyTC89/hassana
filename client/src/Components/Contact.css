@@ -22,3 +22,19 @@
 .contact-icon {
   width: 3rem;
 }
+
+.social-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  width: 3rem;
+}

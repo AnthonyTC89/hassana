@@ -2,7 +2,6 @@
 import React from 'react';
 import axios from 'axios';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Slogan.css';
 
 class Slogan extends React.Component {
@@ -47,13 +46,11 @@ class Slogan extends React.Component {
             </picture>
           )
           : (
-            <div>
-              <picture className="picture-slogan">
-                {recipe
-                  ? <img className="image-slogan" src={recipe.location} alt={recipe.key} />
-                  : null}
-              </picture>
-            </div>
+            <picture className="picture-slogan">
+              {recipe === null
+                ? <img className="mx-auto" src={iconLoading} alt="icon-loading" />
+                : <img className="image-slogan" src={recipe.location} alt={recipe.key} />}
+            </picture>
           )}
       </section>
     );

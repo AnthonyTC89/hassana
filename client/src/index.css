@@ -16,17 +16,24 @@ code {
     monospace;
 }
 
-/* section {
-  margin: 4rem auto;
-} */
-
 label {
   margin: 0 1rem;
 }
 
-/* .row {
-  padding: 1rem;
-} */
+section {
+  margin-top: 3.5rem;
+}
+
+h2 {
+  color: darkgreen;
+  text-transform: uppercase;
+  font-family: 'Kaushan Script', cursive;
+}
+
+p {
+  font-family: 'Comic Neue', cursive;
+  font-size: larger;
+}
 
 .img-button {
   width: 5rem;

@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .about-text {
@@ -16,20 +17,5 @@
   max-width: 20rem;
   margin: auto;
   padding: 1rem;
-}
-
-.social-list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-}
-
-.social-icon {
-  width: 3rem;
+  border-radius: 10%;
 }

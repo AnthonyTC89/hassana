@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
+import uuidv4 from 'uuid/v4';
 import GoogleMaps from './GoogleMaps';
 import iconLoading from '../Images/loading.gif';
 import Info from '../PageInfo.json';
 import Icons from '../Icons.json';
-import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Contact.css';
 
 class Contact extends React.Component {
@@ -22,11 +22,30 @@ class Contact extends React.Component {
       address: contactAddress,
       recipe: contactRecipe,
       map: { zoom: mapZoom, lat: mapLatitude, lng: mapLongitude },
+      socialNetworks: [],
     };
   }
 
   componentDidMount() {
     this.getInfo();
+    this.getSocialNetworks();
+  }
+
+  async getSocialNetworks() {
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await axios.get('/api/social_networks');
+      this.setState({
+        socialNetworks: res.data,
+        loading: false,
+      });
+    } catch (err) {
+      this.setState({
+        loading: false,
+      });
+    }
   }
 
   async getInfo() {
@@ -56,7 +75,8 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { title, recipe, email, mobile, address, map, loading, message } = this.state;
+    const { title, recipe, email, mobile, address, map, loading, message, socialNetworks } = this.state;
+    const social = socialNetworks.filter((sn) => sn.status);
     const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_KEY_API_GOOGLEMAPS}`;
     const containerElement = <div style={{ height: '100%' }} />;
     const mapElement = <div style={{ height: '100%' }} />;
@@ -88,6 +108,19 @@ class Contact extends React.Component {
                 <div>
                   <img className="contact-icon" src={Icons.address} alt="hassana-icon" />
                   <p>{address}</p>
+                </div>
+                <div className="social-list">
+                  {social.map((item) => (
+                    <a
+                      key={uuidv4()}
+                      className="social-link"
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
+                    </a>
+                  ))}
                 </div>
               </div>
               <div className="col-12 col-md-4 order-2 order-md-3 contact-map">
