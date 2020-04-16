@@ -3,10 +3,34 @@
 }
 
 .promotion {
-  padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 1rem;
+  padding: 0;
+  border: 2px solid #509433;
+  width: 80%;
+}
+
+.promo-header {
+  padding: 1rem 1rem 6rem 1rem;
+  background: white;
+}
+
+.promo-picture {
+  position: absolute;
+  overflow: hidden;
+  background-size:cover;
+  background-position:center;
+  top: 9rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .promo-image {
-  max-height: 10rem;
+  width: 10rem;
+  height: 10rem;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.promo-text {
+  padding: 6rem 3rem 1rem 3rem;
 }

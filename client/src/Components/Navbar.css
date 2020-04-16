@@ -23,12 +23,6 @@
   font-weight: 600;
 }
 
-.bg-hassana {
-  background: #daf3cf;  
-  background: -webkit-linear-gradient(to right, #f1f5ed, #d1ebc5); 
-  background: linear-gradient(to right, #f1f5ed, #d1ebc5);
-}
-
 .btn-image {
   max-width: 1.5rem;
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Promotions.css';
 
 class Promotions extends React.Component {
@@ -46,10 +45,14 @@ class Promotions extends React.Component {
           : (
             <div className="row">
               {promotions.map((item) => (
-                <article key={uuidv4()} className="col promotion">
-                  <img className="promo-image" src={item.location} alt={item.key} />
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                <article key={uuidv4()} className="col promotion bg-hassana">
+                  <h3 className="promo-header">{item.title}</h3>
+                  <picture className="promo-picture">
+                    <img className="promo-image" src={item.location} alt={item.key} />
+                  </picture>
+                  <div className="promo-text">
+                    <p>{item.text}</p>
+                  </div>
                 </article>
               ))}
             </div>
