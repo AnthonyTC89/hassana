@@ -1,5 +1,7 @@
 .promotions-section {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .promotion {

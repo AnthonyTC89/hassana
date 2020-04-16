@@ -41,8 +41,11 @@ class Promotions extends React.Component {
       <section className="container promotions-section" id="promotions">
         <h2>Promociones</h2>
         {loading
-          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : (
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          ) : (
             <div className="row">
               {promotions.map((item) => (
                 <article key={uuidv4()} className="col promotion bg-hassana">

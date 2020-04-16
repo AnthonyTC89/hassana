@@ -1,8 +1,9 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import { Carousel } from 'react-responsive-carousel';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Testimonials.css';
 
 class Testimonials extends React.Component {
@@ -42,17 +43,24 @@ class Testimonials extends React.Component {
       <section className="container testimonials-section" id="testimonials">
         <h2>Testimonios</h2>
         {loading
-          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : testimonials.map((item) => (
-            <article key={uuidv4()} className="row testimonial">
-              <picture className="col-12 col-sm-6">
-                <img className="testimonial-img" src={item.location} alt={item.key} />
-              </picture>
-              <div className="col-12 col-sm-6 testimonial-text">
-                <p>{item.text}</p>
-              </div>
-            </article>
-          ))}
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          ) : (
+            <Carousel>
+              {testimonials.map((item) => (
+                <article key={uuidv4()} className="row testimonial">
+                  <picture className="col-12 col-sm-6">
+                    <img className="testimonial-img" src={item.location} alt={item.key} />
+                  </picture>
+                  <div className="col-12 col-sm-6 testimonial-text">
+                    <p>{item.text}</p>
+                  </div>
+                </article>
+              ))}
+            </Carousel>
+          )}
       </section>
     );
   }

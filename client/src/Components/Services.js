@@ -66,30 +66,35 @@ class Services extends React.Component {
             />
           )
           : null}
-        <div className="row">
-          {loading
-            ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-            : services.map((item) => (
-              <article key={uuidv4()} className="col-12 col-sm-6 col-md-4 service">
-                <picture className="service-picture">
-                  <img className="service-img" src={item.location} alt={item.key} />
-                </picture>
-                <h4>{item.title}</h4>
-                <p>{item.text}</p>
-                {item.benefits === ''
-                  ? null
-                  : (
-                    <button
-                      className="btn btn-success"
-                      type="button"
-                      onClick={() => this.openModal(item)}
-                    >
-                      Beneficios
-                    </button>
-                  )}
-              </article>
-            ))}
-        </div>
+        {loading
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          ) : (
+            <div className="row">
+              {services.map((item) => (
+                <article key={uuidv4()} className="col-12 col-sm-6 col-md-4 service">
+                  <picture className="service-picture">
+                    <img className="service-img" src={item.location} alt={item.key} />
+                  </picture>
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                  {item.benefits === ''
+                    ? null
+                    : (
+                      <button
+                        className="btn btn-success"
+                        type="button"
+                        onClick={() => this.openModal(item)}
+                      >
+                        Beneficios
+                      </button>
+                    )}
+                </article>
+              ))}
+            </div>
+          )}
       </section>
     );
   }

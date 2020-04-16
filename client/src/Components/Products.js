@@ -2,7 +2,6 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import iconLoading from '../Images/loading.gif';
-import 'bootstrap/dist/css/bootstrap-grid.css';
 import './Products.css';
 
 class Products extends React.Component {

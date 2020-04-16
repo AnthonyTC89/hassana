@@ -7,8 +7,8 @@ import Slogan from '../Components/Slogan';
 import AboutUs from '../Components/AboutUs';
 import Services from '../Components/Services';
 import Promotions from '../Components/Promotions';
-import Products from '../Components/Products';
 import Testimonials from '../Components/Testimonials';
+import Products from '../Components/Products';
 import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
 
@@ -34,8 +34,8 @@ class Home extends React.Component {
           <AboutUs />
           <Services />
           <Promotions />
-          <Products />
           <Testimonials />
+          <Products />
           <Contact />
         </main>
         <Footer />
