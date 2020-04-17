@@ -63,7 +63,7 @@ class Testimonials extends React.Component {
                     <img className="testimonial-img" src={item.location} alt={item.key} />
                   </picture>
                   <div className="col-12 col-sm-6 testimonial-text">
-                    <span>{item.text}</span>
+                    <p>{item.text}</p>
                   </div>
                 </article>
               ))}

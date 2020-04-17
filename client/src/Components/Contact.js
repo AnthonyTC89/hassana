@@ -1,51 +1,28 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
-import uuidv4 from 'uuid/v4';
 import GoogleMaps from './GoogleMaps';
 import iconLoading from '../Images/loading.gif';
-import Info from '../PageInfo.json';
 import Icons from '../Icons.json';
 import './Contact.css';
 
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-    const { contactTitle, contactEmail, contactMobile, contactAddress,
-      contactRecipe, mapZoom, mapLatitude, mapLongitude } = Info;
     this.state = {
       loading: false,
       message: '',
-      title: contactTitle,
-      email: contactEmail,
-      mobile: contactMobile,
-      address: contactAddress,
-      recipe: contactRecipe,
-      map: { zoom: mapZoom, lat: mapLatitude, lng: mapLongitude },
-      socialNetworks: [],
+      title: '',
+      email: '',
+      mobile: '',
+      address: '',
+      recipe: null,
+      map: null,
     };
   }
 
   componentDidMount() {
     this.getInfo();
-    this.getSocialNetworks();
-  }
-
-  async getSocialNetworks() {
-    this.setState({
-      loading: true,
-    });
-    try {
-      const res = await axios.get('/api/social_networks');
-      this.setState({
-        socialNetworks: res.data,
-        loading: false,
-      });
-    } catch (err) {
-      this.setState({
-        loading: false,
-      });
-    }
   }
 
   async getInfo() {
@@ -75,9 +52,7 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { title, recipe, email, mobile, address, map, loading, message,
-      socialNetworks } = this.state;
-    const social = socialNetworks.filter((sn) => sn.status);
+    const { title, recipe, email, mobile, address, map, loading, message } = this.state;
     const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_KEY_API_GOOGLEMAPS}`;
     const containerElement = <div style={{ height: '100%' }} />;
     const mapElement = <div style={{ height: '100%' }} />;
@@ -94,7 +69,9 @@ class Contact extends React.Component {
           : (
             <div className="row bg-hassana">
               <picture className="col-12 col-md-4 order-3 order-md-1 contact-picture">
-                <img className="contact-img" src={recipe.location} alt={recipe.key} />
+                {recipe == null
+                  ? null
+                  : <img className="contact-img" src={recipe.location} alt={recipe.key} />}
               </picture>
               <div className="col-12 col-md-4 order-1 order-md-2 contact-text">
                 <h2>{title}</h2>
@@ -110,29 +87,19 @@ class Contact extends React.Component {
                   <img className="contact-icon" src={Icons.address} alt="hassana-icon" />
                   <p>{address}</p>
                 </div>
-                <h3>Mis Redes Sociales</h3>
-                <div className="social-list">
-                  {social.map((item) => (
-                    <a
-                      key={uuidv4()}
-                      className="social-link"
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img className="social-icon" src={item.src} alt={`${item.name}-icon`} />
-                    </a>
-                  ))}
-                </div>
               </div>
               <div className="col-12 col-md-4 order-2 order-md-3 contact-map">
-                <GoogleMaps
-                  googleMapURL={googleMapURL}
-                  containerElement={containerElement}
-                  mapElement={mapElement}
-                  loadingElement={loadingElement}
-                  map={map}
-                />
+                {map == null
+                  ? null
+                  : (
+                    <GoogleMaps
+                      googleMapURL={googleMapURL}
+                      containerElement={containerElement}
+                      mapElement={mapElement}
+                      loadingElement={loadingElement}
+                      map={map}
+                    />
+                  )}
               </div>
             </div>
           )}
