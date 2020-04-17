@@ -28,6 +28,9 @@ label {
 
 section {
   margin-top: 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {

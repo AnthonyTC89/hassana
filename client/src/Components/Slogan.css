@@ -1,18 +1,10 @@
-picture{
-  display: flex;
-}
-
-.slogan-section {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
 .picture-slogan {
   position: relative;
+  /* display: flex; */
 }
 
 .image-slogan {
+  /* display: flex; */
   width: 100%;
   max-height: 50rem;
 }

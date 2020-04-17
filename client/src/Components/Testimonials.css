@@ -9,6 +9,7 @@
   margin: 0 1rem;
 }
 .testimonial-picture {
+  display: flex;
   height: 20rem;
 }
 
@@ -17,6 +18,9 @@
   max-width: 100%;
   width: auto !important;
   margin: auto;
+  -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 100, 0, 0.502);
+  -moz-box-shadow: 0px 10px 15px 0px hsla(120, 100%, 20%, 0.502);
+  box-shadow: 0px 10px 15px 0px rgba(0, 100, 0, 0.502);
 }
 
 .testimonial-text {

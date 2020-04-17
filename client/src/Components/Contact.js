@@ -83,7 +83,7 @@ class Contact extends React.Component {
     const mapElement = <div style={{ height: '100%' }} />;
     const loadingElement = <p>Loading</p>;
     return (
-      <section className="container-fluid contact-section bg-hassana" id="contact">
+      <section className="container-fluid contact-section" id="contact">
         <p>{message}</p>
         {loading
           ? (
@@ -92,7 +92,7 @@ class Contact extends React.Component {
             </picture>
           )
           : (
-            <div className="row">
+            <div className="row bg-hassana">
               <picture className="col-12 col-md-4 order-3 order-md-1 contact-picture">
                 <img className="contact-img" src={recipe.location} alt={recipe.key} />
               </picture>
@@ -110,6 +110,7 @@ class Contact extends React.Component {
                   <img className="contact-icon" src={Icons.address} alt="hassana-icon" />
                   <p>{address}</p>
                 </div>
+                <h3>Mis Redes Sociales</h3>
                 <div className="social-list">
                   {social.map((item) => (
                     <a
