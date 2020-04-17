@@ -1,6 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import BenefitsModal from './BenefitsModal';
 import iconLoading from '../Images/loading.gif';
 import './Products.css';
 
@@ -10,7 +11,11 @@ class Products extends React.Component {
     this.state = {
       products: [],
       loading: false,
+      modalVisible: false,
+      productSelected: null,
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -34,30 +39,58 @@ class Products extends React.Component {
     }
   }
 
+  openModal(productSelected) {
+    this.setState({
+      modalVisible: true,
+      productSelected,
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      modalVisible: false,
+    });
+  }
+
   render() {
-    const { products, loading } = this.state;
+    const { products, loading, modalVisible, productSelected } = this.state;
     if (products.length === 0) { return null; }
     return (
-      <section className="container-fluid products-section bg-hassana" id="products">
+      <section className="container products-section bg-hassana" id="products">
         <h2>Productos</h2>
+        {modalVisible
+          ? (
+            <BenefitsModal
+              item={productSelected}
+              modalVisible={modalVisible}
+              closeModal={this.closeModal}
+            />
+          )
+          : null}
         {loading
-          ? <img className="icon-loading" src={iconLoading} alt="icon-loading" />
-          : (
+          ? (
+            <picture className="row mx-auto">
+              <img className="icon-loading" src={iconLoading} alt="icon-loading" />
+            </picture>
+          ) : (
             <div className="row">
               {products.map((item) => (
-                <article key={uuidv4()} className="col product">
-                  <img className="product-img" src={item.location} alt={item.key} />
+                <article key={uuidv4()} className="col-12 col-sm-6 col-md-4 product">
+                  <picture className="product-picture">
+                    <img className="product-img" src={item.location} alt={item.key} />
+                  </picture>
                   <h4>{item.title}</h4>
                   <p>{item.text}</p>
-                  {item.benefits === '' ? null
+                  {item.benefits === ''
+                    ? null
                     : (
-                      <ul className="benefits-list">
-                        {item.benefits.split('. ').map((b) => (
-                          <li key={uuidv4()} className="list-item">
-                            <p>{b}</p>
-                          </li>
-                        ))}
-                      </ul>
+                      <button
+                        className="btn btn-success"
+                        type="button"
+                        onClick={() => this.openModal(item)}
+                      >
+                        Beneficios
+                      </button>
                     )}
                 </article>
               ))}

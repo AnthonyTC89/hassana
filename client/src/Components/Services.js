@@ -10,6 +10,7 @@ class Services extends React.Component {
     super(props);
     this.state = {
       services: [],
+      loading: false,
       modalVisible: false,
       serviceSelected: null,
     };

@@ -1,10 +1,24 @@
 .products-section {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
+
 .product {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.1rem 1rem;
 }
+
+.product-picture {
+  display: flex;
+  height: 15rem;
+}
+
 .product-img {
-  max-height: 10rem
+  margin: auto;
+  max-width: 85%;
+  max-height: 85%; 
+  /* https://www.cssmatic.com/box-shadow */
+  -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 100, 0, 0.502);
+  -moz-box-shadow: 0px 10px 15px 0px hsla(120, 100%, 20%, 0.502);
+  box-shadow: 0px 10px 15px 0px rgba(0, 100, 0, 0.502);
 }

@@ -10,11 +10,32 @@
 }
 
 .testimonial-img {
-  width: 60%;
+  max-height: 20rem;
+  width: auto !important;
   margin: auto;
 }
 
 .testimonial-text {
   display: flex;
   align-items: center;
+}
+
+/* CSS Slider */
+
+.slide {
+  background: #daf3cf !important;  
+  background: -webkit-linear-gradient(to right, #f1f5ed, #d1ebc5) !important; 
+  background: linear-gradient(to right, #f1f5ed, #d1ebc5) !important;
+}
+
+.control-arrow {
+  background: #7bbb7b !important;
+}
+
+.control-arrow:hover {
+  opacity: 0.7 !important;
+}
+
+.control-dots {
+  padding: 0;
 }

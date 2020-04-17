@@ -40,7 +40,7 @@ class Testimonials extends React.Component {
     const { testimonials, loading } = this.state;
     if (testimonials.length === 0) { return null; }
     return (
-      <section className="container testimonials-section" id="testimonials">
+      <section className="container-fluid testimonials-section" id="testimonials">
         <h2>Testimonios</h2>
         {loading
           ? (
@@ -48,13 +48,21 @@ class Testimonials extends React.Component {
               <img className="icon-loading" src={iconLoading} alt="icon-loading" />
             </picture>
           ) : (
-            <Carousel>
+            <Carousel
+              showStatus={false}
+              showThumbs={false}
+              useKeyboardArrows
+              autoPlay
+              infiniteLoop
+              interval={5000}
+              transitionTime={1000}
+            >
               {testimonials.map((item) => (
                 <article key={uuidv4()} className="row testimonial">
                   <picture className="col-12 col-sm-6">
                     <img className="testimonial-img" src={item.location} alt={item.key} />
                   </picture>
-                  <div className="col-12 col-sm-6 testimonial-text">
+                  <div className="col-12 col-sm-6 pt-4 pt-sm-0 testimonial-text">
                     <p>{item.text}</p>
                   </div>
                 </article>
