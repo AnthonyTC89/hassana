@@ -6,11 +6,15 @@
 
 .testimonial {
   padding: 1rem;
-  margin: 1rem;
+  margin: 0 1rem;
+}
+.testimonial-picture {
+  height: 20rem;
 }
 
 .testimonial-img {
-  max-height: 20rem;
+  max-height: 90%;
+  max-width: 100%;
   width: auto !important;
   margin: auto;
 }
@@ -18,6 +22,8 @@
 .testimonial-text {
   display: flex;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
 }
 
 /* CSS Slider */

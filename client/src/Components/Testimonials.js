@@ -59,11 +59,11 @@ class Testimonials extends React.Component {
             >
               {testimonials.map((item) => (
                 <article key={uuidv4()} className="row testimonial">
-                  <picture className="col-12 col-sm-6">
+                  <picture className="col-12 col-sm-6 testimonial-picture">
                     <img className="testimonial-img" src={item.location} alt={item.key} />
                   </picture>
-                  <div className="col-12 col-sm-6 pt-4 pt-sm-0 testimonial-text">
-                    <p>{item.text}</p>
+                  <div className="col-12 col-sm-6 testimonial-text">
+                    <span>{item.text}</span>
                   </div>
                 </article>
               ))}
