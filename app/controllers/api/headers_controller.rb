@@ -10,7 +10,7 @@ module Api
 
     # GET /headers
     def full_index
-      @query = "SELECT h.id, h.title, h.text, h.recipe_id, r.location, r.key FROM Headers as h INNER JOIN Recipes as r ON h.recipe_id = r.id"
+      @query = "SELECT h.id, h.title, h.text, h.recipe_id, r.location, r.key FROM Headers as h INNER JOIN Recipes as r ON h.recipe_id = r.id  WHERE h.status=true"
       @headers = Header.connection.select_all(@query).to_a
       render json: @headers
     end

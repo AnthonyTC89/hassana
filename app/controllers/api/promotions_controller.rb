@@ -9,7 +9,7 @@ module Api
     end
 
     def full_index
-      @query = "SELECT p.id, p.title, p.text, p.status, p.recipe_id, r.location, r.key FROM Promotions as p INNER JOIN Recipes as r ON p.recipe_id = r.id"
+      @query = "SELECT p.id, p.title, p.text, p.status, p.recipe_id, r.location, r.key FROM Promotions as p INNER JOIN Recipes as r ON p.recipe_id = r.id WHERE p.status=true"
       @promotions = Promotion.connection.select_all(@query).to_a
       render json: @promotions
     end

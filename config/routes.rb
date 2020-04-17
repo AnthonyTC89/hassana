@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get "/full_abouts", to: "abouts#full_index"
 
     resources :social_networks, only: [:index, :create, :update, :destroy]
-    get "/full_social_networks", to: "social_networks#full_index"
+    get "/social_networks_active", to: "social_networks#index_active"
 
     resources :products, only: [:index, :create, :update, :destroy]
     get "/full_products", to: "products#full_index"

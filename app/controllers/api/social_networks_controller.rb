@@ -9,8 +9,8 @@ module Api
       render json: @social_networks
     end
 
-    def full_index
-      @social_networks = SocialNetwork.all
+    def index_active
+      @social_networks = SocialNetwork.where(status: true)
 
       render json: @social_networks
     end

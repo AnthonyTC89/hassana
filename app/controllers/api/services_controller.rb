@@ -9,7 +9,7 @@ module Api
     end
 
     def full_index
-      @query = "SELECT s.id, s.title, s.text, s.benefits, s.status, s.recipe_id, r.location, r.key FROM Services as s INNER JOIN Recipes as r ON s.recipe_id = r.id"
+      @query = "SELECT s.id, s.title, s.text, s.benefits, s.status, s.recipe_id, r.location, r.key FROM Services as s INNER JOIN Recipes as r ON s.recipe_id = r.id WHERE s.status=true"
       @services = Service.connection.select_all(@query).to_a
       render json: @services
     end

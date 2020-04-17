@@ -10,7 +10,7 @@ module Api
     end
 
     def full_index
-      @query = "SELECT p.id, p.title, p.text, p.benefits, p.status, p.recipe_id, r.location, r.key FROM Products as p INNER JOIN Recipes as r ON p.recipe_id = r.id"
+      @query = "SELECT p.id, p.title, p.text, p.benefits, p.status, p.recipe_id, r.location, r.key FROM Products as p INNER JOIN Recipes as r ON p.recipe_id = r.id WHERE p.status=true"
       @products = Product.connection.select_all(@query).to_a
       render json: @products
     end

@@ -22,7 +22,7 @@ class Footer extends React.Component {
       loading: true,
     });
     try {
-      const res = await axios.get('/api/social_networks');
+      const res = await axios.get('/api/social_networks_active');
       this.setState({
         socialNetworks: res.data,
         loading: false,
